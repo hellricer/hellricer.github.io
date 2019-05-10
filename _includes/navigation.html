@@ -1,0 +1,35 @@
+<div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav">
+        <div class="main-nav">
+            {% for link in site.links %}
+            <span class="nav-item">
+                {% if link.external %}
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                {% else %}
+                    <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>
+                {% endif %} 
+            </span>
+            {% endfor %}
+            <span class="nav-item"><a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><span class="nav-icon">☰</span> Feed</a></span>
+        </div>
+    </nav>
+</div><!-- /.navigation-wrapper -->
+
+{% if page.id %}
+    {% if page.image and page.image.feature %}
+    <header class="masthead"></header><!-- /.masthead -->
+    {% endif %}
+{% else %}<header class="masthead">
+    <div class="wrap">
+        <div class="site-logo">
+            <pre>
+ _       _ _     _
+| |_ ___| | |_ _(_)___ ___ _ _
+|   | -_) | | '_| /  _/ -_) '_|
+|_|_|___|_|_|_| |_\___\___|_|
+            </pre>
+        </div>
+        <h2 class="site-description" itemprop="description">{{ site.description }}</h2>
+    </div>
+</header><!-- /.masthead -->
+{% endif %}

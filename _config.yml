@@ -1,0 +1,20 @@
+title: ~hellricer/
+description: — Going mouseless
+url: http://hellricer.github.io
+#url: http://0.0.0.0:8000
+
+owner:
+  name: "hellricer"
+  github: hellricer
+  email: https://pgp.mit.edu/pks/lookup?op=vindex&search=0x1025243C08203CF0
+
+links:
+  - title: <span class="nav-icon">✎</span> Posts
+    url: /
+  - title: <span class="nav-icon">⚙</span> Projects
+    url: /projects.html
+  - title: <span class="nav-icon">☆</span> About
+    url: /about.html
+
+timezone: Europe/Prague
+exclude: []
