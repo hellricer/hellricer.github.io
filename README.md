@@ -1,1 +1,1 @@
-
+Personal Obraz (Jekyll) site.
