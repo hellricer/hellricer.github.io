@@ -10,10 +10,6 @@
     </url>
     
     <url>
-        <loc>https://hellricer.github.io/search.json</loc>
-    </url>
-    
-    <url>
         <loc>https://hellricer.github.io/sitemap.xml</loc>
     </url>
     
@@ -34,5 +30,13 @@
     </url>
     
 
+    
+    <url>
+        <loc>https://hellricer.github.io/2019/05/21/ctrl-arrows-in-terminal.html</loc>
+    </url>
+    
+    <url>
+        <loc>https://hellricer.github.io/2019/05/20/new-webpage.html</loc>
+    </url>
     
 </urlset>

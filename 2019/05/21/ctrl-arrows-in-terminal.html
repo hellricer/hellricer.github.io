@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>About | ~hellricer/</title>
+<title>Ctrl+Arrows in terminal | ~hellricer/</title>
 <meta name="description" content="— a terminal dweller">
-
+<meta name="keywords" content="linux, cli, tui, terminal, console, bash, shell, zsh, vim">
 
 <link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
 
@@ -75,19 +75,8 @@
     </nav>
 </div><!-- /.navigation-wrapper -->
 
-<header class="masthead">
-    <div class="wrap">
-        <div class="site-logo">
-            <pre>
- _       _ _     _
-| |_ ___| | |_ _(_)___ ___ _ _
-|   | -_| | | '_| /  _/ -_| '_|
-|_|_|___|_|_|_| |_\___\___|_|
-            </pre>
-        </div>
-        <h2 class="site-description" itemprop="description">— a terminal dweller</h2>
-    </div>
-</header><!-- /.masthead -->
+
+    
 
 
 <div id="main" role="main">
@@ -95,19 +84,109 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title">About</h1>
+        <h1 class="entry-title">Ctrl+Arrows in terminal</h1>
       </header>
       <div class="entry-content">
-        <h1>I am...</h1>
-<p>... a programmer by trade.</p>
-<p>... a free-software enthusiast.</p>
-<p>... lover of keyboard-driven, command-line and textual interfaces.</p>
-<p>... reachable on <a href="https://github.com/hellricer">Github</a> and <a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x1025243C08203CF0">Email</a>.</p>
-<h1>This website...</h1>
-<p>... is responsive.</p>
-<p>... aims to be modern, minimal &amp; easy on the eyes.</p>
-<p>... is less that 1MB.</p>
-<p>... looks good in terminal-based browsers like (lynx, w3m &amp; elinks).</p>
+        
+<p class="meta">
+  <small>
+    <em>[May 21, 2019]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>Basically every program with some kind of input field supports <code>Ctrl+Arrows</code> for skipping over words,
+<code>Ctrl+Backspace</code>, <code>Ctrl+Del</code> for deleting words, <code>Ctrl+Shift+Delete</code> for deleting rest of the line, etc.</p>
+<p>Terminal emulators, on the other hand…</p>
+<p>We could go to great lengths explaining reasons, history of vt100, etc… But the reality is that even when you're not particularly fond of GUI apps, you probably use at least a web browser and you likely have these shortcuts engraved into your muscle memory anyway.</p>
+<p>Of course, you can use <code>Alt+Arrow</code> and other <a href="https://readline.kablamo.org/emacs.html">very powerful</a> <code>readline</code> bindings, but that means learning
+whole new, <a href="https://clementc.github.io/blog/2018/01/25/moving_cli/">quite esoteric set of shortcuts for rather basic things</a> like moving around and deleting text.</p>
+<p>So, if you want to join me in spitting on the VT100's grave and admitting that GUI apps won this round, this post is for you.</p>
+<p>Settings presented below <em>should</em> cover most scenarios, but in case they don't, you will have to find out the sequences your terminal produces.
+Easiest way is to run <code>cat</code> and see what sequences are printed.</p>
+<p>Note that when you use <code>tmux</code>, many key codes are different by default. For example, plain <code>xterm</code> sends <code>^[[1;5D</code> on <code>Ctrl+Left</code> while <code>tmux</code> sends <code>^[OD</code>.
+I have no idea what's the reason behind this, but you can save yourself some headache by putting <code>set-window-option -g xterm-keys on</code> to your <code>~/.tmux.conf</code>.</p>
+<p>Unfortunately, binding <code>Ctrl+Shift+…</code> is much more problematic and there's actually no way to bind <code>Ctrl+Shift+Backspace.</code>-
+You can bind <code>backward-kill-line</code> to some other shortcut, or use one of the default ones <code>Ctrl+U</code> or <code>Ctrl+X Backspace</code>.</p>
+<p><em>Note:</em> If your terminal/shell produces sequences that are not listed, I would be grateful if you send me an email, so I can add them here.</p>
+<h1>bash/readline (configured in ~/.inputrc)</h1>
+<hr>
+
+<pre><code>### ctrl+arrows
+# works in most terminals: xterm, gnome-terminal, terminator, st, sakura, termit, …
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+# urxvt
+"\eOc": forward-word
+"\eOd": backward-word
+
+### ctrl+delete
+"\e[3;5~": kill-word
+# in this case, st misbehaves (even with tmux)
+"\e[M": kill-word
+# and of course, urxvt must be always special
+"\e[3^": kill-word
+
+### ctrl+backspace
+"\C-h": backward-kill-word
+
+### ctrl+shift+delete
+"\e[3;6~": kill-line
+# URxvt note: you have to disable Ctrl+Shift popup in ~/.Xresources:
+# URxvt.iso14755: true
+# URxvt.iso14755_52: false
+"\e[3@": kill-line
+# st sends same sequence as plain delete :(
+</code></pre>
+<hr>
+
+<h1>zsh/zle (configured in ~/.zshrc)</h1>
+<hr>
+
+<pre><code>### ctrl+arrows
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+# urxvt
+bindkey "\eOc" forward-word
+bindkey "\eOd" backward-word
+
+### ctrl+delete
+bindkey "\e[3;5~" kill-word
+# urxvt
+bindkey "\e[3^" kill-word
+
+### ctrl+backspace
+bindkey '^H' backward-kill-word
+
+### ctrl+shift+delete
+bindkey "\e[3;6~" kill-line
+# urxvt
+bindkey "\e[3@" kill-line
+</code></pre>
+<hr>
+
+<h1>bonus: vim</h1>
+<p>If this post wasn't heretical enough, here's also mapping for vim.</p>
+<p>I know, there are better ways to move in vim, but it's still an improvement over
+deleting/changing 5 lines, which is how vim interprets these sequences by default.</p>
+<hr>
+
+<pre><code>" ctrl+left/right
+nmap &lt;ESC&gt;[1;5D &lt;C-Left&gt;
+nmap &lt;ESC&gt;[1;5C &lt;C-Right&gt;
+cmap &lt;ESC&gt;[1;5D &lt;C-Left&gt;
+cmap &lt;ESC&gt;[1;5C &lt;C-Right&gt;
+imap &lt;ESC&gt;[1;5D &lt;C-o&gt;&lt;C-Left&gt;
+imap &lt;ESC&gt;[1;5C &lt;C-o&gt;&lt;C-Right&gt;
+" ctrl+backspace
+nmap &lt;C-h&gt; &lt;C-w&gt;
+cmap &lt;C-h&gt; &lt;C-w&gt;
+imap &lt;C-h&gt; &lt;C-w&gt;
+</code></pre>
+<hr>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
   </article>
