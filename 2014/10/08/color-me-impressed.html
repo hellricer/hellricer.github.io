@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Color me impressed | ~hellricer/</title>
+<meta name="description" content="— a terminal dweller">
+<meta name="keywords" content="termcap, terminfo, ANSI, bash, zsh, color, colorize, highlighting, syntax">
+
+<link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://hellricer.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Load highlight.js -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/styles/googlecode.css">
+<script src="https://hellricer.github.io/assets/js/vendor/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hellricer.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hellricer.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hellricer.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hellricer.github.io/images/apple-touch-icon-144x144-precomposed.png">
+</head>
+
+<body id="page">
+
+<div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav">
+        <div class="main-nav">
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/"><span class="nav-icon">✎</span> Posts</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/projects.html"><span class="nav-icon">⚙</span> Projects</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/about.html"><span class="nav-icon">☆</span> About</a>
+                 
+            </span>
+            
+            <span class="nav-item"><a href="https://hellricer.github.io/feed.xml" title="Atom/RSS feed"><span class="nav-icon">☰</span> Feed</a></span>
+        </div>
+    </nav>
+</div><!-- /.navigation-wrapper -->
+
+
+    
+
+
+<div id="main" role="main">
+  <article class="entry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <h1 class="entry-title">Color me impressed</h1>
+      </header>
+      <div class="entry-content">
+        
+<p class="meta">
+  <small>
+    <em>[October 08, 2014]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>I'm crazy about colors.</p>
+<p>I work with terminal emulators all the time and nothings is more deterrent to
+me than big wall of black &amp; white text spitted out into my 300x100 terminal.</p>
+<p>I want my errors red and successes green, I want numbers, URLs and paths pop
+out from the rest of the text, I want colored logs, compiler outputs, source
+code snippets... It really makes your terminal experience much more fun.</p>
+<p>So let's take a look where my obsession brought me so far.</p>
+<h2>Brief history</h2>
+<p>In the late 70s, the number of character-oriented terminals was rapidly
+expanding. Of course there was no "de jure" standard and each manufacturer
+handled their <a href="http://en.wikipedia.org/wiki/Escape_sequence">escape sequences</a>
+differently. That meant that every screen-handling program had to be written
+for one (type of) terminal only.</p>
+<p>To deal with these incompatibilities, Bill Joy foresightedly created the
+<code>termcap</code> library (<strong>term</strong>inal <strong>cap</strong>abilities), mainly to make his
+legendary <code>vi</code> editor more portable. This also allowed others to write screen-
+oriented applications not dependent on one particular terminal. Brilliant
+idea, which was over time gradually pushed out by <code>terminfo</code> implementing the
+same principle with several improvements. Later, even more abstract libraries
+like <code>curses</code> emerged, using <code>termcap</code> or <code>terminfo</code> under the hood.</p>
+<p>Big change was the terminal VT100 by DEC in 1978. It was the first terminal
+with its escape sequences based on the <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape
+codes</a>, which was a new
+standard that gradually gained popularity as more and more software started to
+assume its presence on terminals. This led yet another terminals and terminal
+emulators to implement it. Almost every terminal emulator on modern
+distributions emulate VT100 or its successors.</p>
+<p>This standard allowed to control the formatting, emphasis, blinking,
+positioning the cursor, deleting lines and - colors. Eight of them, each in
+normal and bright variant. Unlike the Web colors or X Window color standards,
+ANSI only defines color <em>names</em>. Each terminal can assign color values
+differently, which can be configured most of the time. Nowadays, majority of
+terminal emulators support 8-bit palette.</p>
+<h2>Prompt</h2>
+<p>The first thing you should do is to make your prompt pop out of the wall of
+applications' outputs. This way you can easily navigate on screen, see what
+commands did what etc. I won't go into details (which differ shell to shell
+anyway), just look at the difference:</p>
+<figure>
+    <a href="https://hellricer.github.io//assets/images/colors/command_line.png"><img src="https://hellricer.github.io//assets/images/colors/command_line.png" alt=" Image: " title="Colored command line" /></a>
+    <figcaption>Colored command line</figcaption>
+</figure>
+
+<p>This picture demonstrates also <a href="https://github.com
+/zsh-users/zsh-syntax-highlighting">zsh syntax highlighting</a> syntactically coloring the command line
+and <a href="https://github.com/sickill/stderred">stderred</a> coloring the STDERR red.</p>
+<h2>Out of the box</h2>
+<p>Some of the standard GNU coreutils have to colored output support built in,
+but it might not be enabled by default on all distributions.</p>
+<p>You probably do have colors in your <code>ls</code>, but the <code>--color=auto</code> option works
+also on <code>grep</code> or <code>cal</code>. Naturally, colors of <code>grep</code> and <code>ls</code> can be
+customized. In <code>grep</code> there's only one color (the match) and you can change it
+by setting <code>GREP_COLOR</code> environment variable.</p>
+<pre><code>export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='1;33'
+</code></pre>
+<p>But you're already using <code>ag</code> anyway, aren't you? ;)</p>
+<p>It's a bit more complicated with <code>ls</code>. First off, there are currently two
+widespread implementations - the GNU <code>ls</code> on most unices and BSD <code>ls</code> on BSDs
+and Mac Os X. Each have different syntax for defining colors. And secondly,
+there is lot to configure.</p>
+<p>Fortunately, there is <a href="http://geoff.greer.fm/lscolors/"><code>LSCOLORS</code> generator</a>
+by Geof Greer (famous for his amazing Silver Searcher - also colored!), which
+turns it into fun.</p>
+<p>Note: <code>--color=always</code> produces ANSI sequences also when using the program
+non-interactively, which may cause difficulties in scripts.</p>
+<h2>Man pages</h2>
+<p>Colored man pages can achieved in multiple ways. You can use <code>less</code>, <code>most</code>,
+or <code>vim</code> depending on what your needs are.</p>
+<p>I chose <code>less</code> because I'm most used to it. Again, I won't go into details
+about how to set it up - there are lot of blog posts on web about it. In
+short, you basically have redefine some <code>termcap</code> sequences to display colors.</p>
+<figure>
+    <a href="https://hellricer.github.io//assets/images/colors/man_pages.png"><img src="https://hellricer.github.io//assets/images/colors/man_pages.png" alt=" Image: " title="Did you ever enjoy reading these? Now you can!" /></a>
+    <figcaption>Did you ever enjoy reading these? Now you can!</figcaption>
+</figure>
+
+<p>The <code>most</code> works out of the box - just set <code>$MANPAGER</code> (or <code>$PAGER</code>) variable
+and you're done. One slight problem is that the shortcuts are different from
+<code>less</code> (you can re-bind them, though).</p>
+<h2>The rest</h2>
+<p>What about the tools that don't have built-in color support? Should one search
+for alternatives written in ncurses, like <code>htop</code> to <code>top</code> or <code>most</code> to <code>less</code>
+and use them instead? That's one option, but remember that one of the
+fundamental principles of Unix philosophy is to write small programs that work
+well together.</p>
+<p>So let's leave the job to colorizers! After wading through several colorizers
+for different purposes (Maven, syslog, traceroute), I started feeling that
+this is not the best way.</p>
+<p>Fortunately, others had that feeling before me, so there's already few
+general-purpose colorizers that can be extended to other purposes easily.</p>
+<p>I tried four most famous ones <code>ccze</code>, <code>source-highlight</code>, <code>grc</code> and <code>rainbow</code>,
+in chronological order.</p>
+<p><code>ccze</code> is a C port of <code>colorize</code> written in perl. It focuses on colorizing
+logs in various formats. It is probably intended mainly for system
+administrators as it supports <code>syslog</code>, <code>procmail</code>, <code>httpd</code> and the like.</p>
+<p><a href="http://www.gnu.org/software/src-highlite/source-
+highlight.html">GNU source-highlight</a> focuses on colorizing programming languages, which isn't
+really useful for command-line work. On the other hand, this program has the
+most powerful language for defining the syntax. All the other tools presented
+here work only with regex.</p>
+<p>Relatively young programs are
+<a href="http://kassiopeia.juls.savba.sk/~garabik/software/grc.html"><code>grc</code></a>. and
+<a href="https://github.com/nicoulaj/rainbow"><code>rainbow</code></a>. They're both written in
+Python, each have the same philosophy, similar library of config files, but
+each realizes it slightly differently.</p>
+<p>They can be easily installed through <code>pip</code> and writing new extensions is
+really easy. The advantage of <code>rainbow</code> is that it can be configured "inline"
+without config files, but I also ran against some issues with usability (i.e.
+no <code>--color=auto</code>?). So no judging, try both!</p>
+<figure>
+    <a href="https://hellricer.github.io//assets/images/colors/grc.png"><img src="https://hellricer.github.io//assets/images/colors/grc.png" alt=" Image: " title="grc in action." /></a>
+    <figcaption>grc in action.</figcaption>
+</figure>
+
+<p>Note for <code>zsh</code> users: if you define alias for e.g. <code>ping</code> as <code>ping=grc ping</code>,
+then you'll lose smart completion of arguments, because <code>zsh</code> completion
+system expands it before finding relevant completion function.</p>
+<p>To get around this, define function instead:</p>
+<pre><code>ping() { grc --colour=auto /usr/bin/ping "$@" }
+</code></pre>
+<h2>Conclusion</h2>
+<p>Colors make your work more fun and allow you to navigate in text more easily.
+Most of the widely used programs like <code>git</code> or <code>gcc</code> already have colored
+output support. For the rest, you can still write new module for one of the
+existing colorizers.</p>
+<p>Bonus: I mostly work with Java, so I wrote <code>grc</code> config file <a href="https://gist.github.com/RobSis/50af3d3ef8e747a0bd18">for
+Maven</a>. If you write
+another one, contribute it to the original project, or share them somewhere!
+At least with me ;)</p>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 | <a href="http://github.com/hellricer">hellricer</a></span>
+
+<div class="social-icons">
+    <a href="https://pgp.mit.edu/pks/lookup?op=vindex&search=0x1025243C08203CF0" title="Email of hellricer" target="_blank"><i class="icon-envelope icon-2x"></i></a>
+    <a href="http://github.com/hellricer" title="hellricer on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+</div><!-- /.social-icons -->
+    <div class="to-top"><a class="scroll" href="#page"><i class="icon-angle-up icon-2x"></i></a></div>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hellricer.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hellricer.github.io/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.9/gist-embed.min.js"></script>
+
+</body>
+</html>

@@ -48,5 +48,65 @@ whole new, &lt;a href=&#34;https://clementc.github.io/blog/2018/01/25/moving_cli
                 <guid isPermaLink="true">https://hellricer.github.io/2019/05/20/new-webpage.html</guid>
             </item>
         
+            <item>
+                <title>Genes in Middle-Earth</title>
+                <description>&lt;p&gt;&lt;em&gt;...one script to find them all,
+and into GEDCOM bind them...&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I love Middle-Earth.  Out of all the imaginary places invented for the entertainment, &lt;em&gt;Arda&lt;/em&gt; is arguably
+the most complex one.  The amount of information that accompanies the stories is overwhelming.  Tolkien is known
+to be genius linguist - languages of his world evolve in time, fork into dialects and influence each other.
+But his sense for geography and history is just as incredible.  There are more than 70 kingdoms with several hundreds of
+people documented at least to some extent.  Some can be find in family trees printed in appendices of the books, some
+family relations are only mentioned in stories, but there&#39;s lot of them.  So, how about we map them?&lt;/p&gt;
+&lt;p&gt;I&#39;m obviously not the first one to think of digitalizing Tolkien&#39;s genealogies.  &lt;a href=&#34;http://www.minastirith.com/cgi-bin/ultimatebb.cgi?ubb=get_topic;f=1;t=000070&#34;&gt;There are&lt;/a&gt;
+some ancient forum threads that dealt with digitalizing th</description>
+                <pubDate>Thu, 30 Apr 2015 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2015/04/30/genes-in-middle-earth.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2015/04/30/genes-in-middle-earth.html</guid>
+            </item>
+        
+            <item>
+                <title>Color me impressed</title>
+                <description>&lt;p&gt;I&#39;m crazy about colors.&lt;/p&gt;
+&lt;p&gt;I work with terminal emulators all the time and nothings is more deterrent to
+me than big wall of black &amp;amp; white text spitted out into my 300x100 terminal.&lt;/p&gt;
+&lt;p&gt;I want my errors red and successes green, I want numbers, URLs and paths pop
+out from the rest of the text, I want colored logs, compiler outputs, source
+code snippets... It really makes your terminal experience much more fun.&lt;/p&gt;
+&lt;p&gt;So let&#39;s take a look where my obsession brought me so far.&lt;/p&gt;
+&lt;h2&gt;Brief history&lt;/h2&gt;
+&lt;p&gt;In the late 70s, the number of character-oriented terminals was rapidly
+expanding. Of course there was no &#34;de jure&#34; standard and each manufacturer
+handled their &lt;a href=&#34;http://en.wikipedia.org/wiki/Escape_sequence&#34;&gt;escape sequences&lt;/a&gt;
+differently. That meant that every screen-handling program had to be written
+for one (type of) terminal only.&lt;/p&gt;
+&lt;p&gt;To deal with these incompatibilities, Bill Joy foresightedly created the
+&lt;code&gt;termcap&lt;/code&gt; library (&lt;strong&gt;term&lt;/strong</description>
+                <pubDate>Wed, 08 Oct 2014 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2014/10/08/color-me-impressed.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2014/10/08/color-me-impressed.html</guid>
+            </item>
+        
+            <item>
+                <title>Generating zsh completion functions</title>
+                <description>&lt;p&gt;When I switched from &lt;code&gt;bash&lt;/code&gt; to &lt;code&gt;zsh&lt;/code&gt;, I was surprised to find how many
+standard programs lacked completion functions. Only few of the coreutils are
+supported in &lt;code&gt;zsh&lt;/code&gt; after the install.&lt;/p&gt;
+&lt;p&gt;Although there are user-contributed repositories like &lt;a href=&#34;http://github.com/zsh-users/zsh-completions&#34;&gt;zsh-users/zsh-
+completions&lt;/a&gt; I still couldn&#39;t
+find completion functions for tools like &lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;nl&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; and others.&lt;/p&gt;
+&lt;p&gt;So I &lt;a href=&#34;http://github.com/zsh-users/zsh-completions/pull/250&#34;&gt;wrote some&lt;/a&gt; and
+I&#39;ve realized that I basically just copied the info from help text to the
+completion function. Boring! Something that even a machine could do. Well,
+almost...&lt;/p&gt;
+&lt;p&gt;Almost every program with command line arguments implements the &lt;code&gt;--help&lt;/code&gt;
+option, which prints out all the options with their description. So why not
+use that for generating the functions?&lt;/p&gt;
+&lt;p&gt;... Because every program uses slightly diffe</description>
+                <pubDate>Tue, 05 Aug 2014 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2014/08/05/generating-completing-functions.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2014/08/05/generating-completing-functions.html</guid>
+            </item>
+        
     </channel>
 </rss>

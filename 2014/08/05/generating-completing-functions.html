@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>~hellricer/</title>
+<title>Generating zsh completion functions | ~hellricer/</title>
 <meta name="description" content="— a terminal dweller">
-
+<meta name="keywords" content="zsh, completion, getopt, generate, automatic">
 
 <link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
 
@@ -75,19 +75,8 @@
     </nav>
 </div><!-- /.navigation-wrapper -->
 
-<header class="masthead">
-    <div class="wrap">
-        <div class="site-logo">
-            <pre>
- _       _ _     _
-| |_ ___| | |_ _(_)___ ___ _ _
-|   | -_| | | '_| /  _/ -_| '_|
-|_|_|___|_|_|_| |_\___\___|_|
-            </pre>
-        </div>
-        <h2 class="site-description" itemprop="description">— a terminal dweller</h2>
-    </div>
-</header><!-- /.masthead -->
+
+    
 
 
 <div id="main" role="main">
@@ -95,28 +84,111 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title"></h1>
+        <h1 class="entry-title">Generating zsh completion functions</h1>
       </header>
       <div class="entry-content">
         
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    
-    <li><span>2019-05-29</span> &raquo; <a href="https://hellricer.github.io/2019/05/29/elinks-with-beautifulsoup.html">ELinks with BeautifulSoup</a></li>
-    
-    <li><span>2019-05-21</span> &raquo; <a href="https://hellricer.github.io/2019/05/21/ctrl-arrows-in-terminal.html">Ctrl+Arrows in terminal</a></li>
-    
-    <li><span>2019-05-20</span> &raquo; <a href="https://hellricer.github.io/2019/05/20/new-webpage.html">New webpage</a></li>
-    
-    <li><span>2015-04-30</span> &raquo; <a href="https://hellricer.github.io/2015/04/30/genes-in-middle-earth.html">Genes in Middle-Earth</a></li>
-    
-    <li><span>2014-10-08</span> &raquo; <a href="https://hellricer.github.io/2014/10/08/color-me-impressed.html">Color me impressed</a></li>
-    
-    <li><span>2014-08-05</span> &raquo; <a href="https://hellricer.github.io/2014/08/05/generating-completing-functions.html">Generating zsh completion functions</a></li>
-    
-  </ul>
+<p class="meta">
+  <small>
+    <em>[August 05, 2014]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>When I switched from <code>bash</code> to <code>zsh</code>, I was surprised to find how many
+standard programs lacked completion functions. Only few of the coreutils are
+supported in <code>zsh</code> after the install.</p>
+<p>Although there are user-contributed repositories like <a href="http://github.com/zsh-users/zsh-completions">zsh-users/zsh-
+completions</a> I still couldn't
+find completion functions for tools like <code>cat</code>, <code>nl</code>, <code>df</code> and others.</p>
+<p>So I <a href="http://github.com/zsh-users/zsh-completions/pull/250">wrote some</a> and
+I've realized that I basically just copied the info from help text to the
+completion function. Boring! Something that even a machine could do. Well,
+almost...</p>
+<p>Almost every program with command line arguments implements the <code>--help</code>
+option, which prints out all the options with their description. So why not
+use that for generating the functions?</p>
+<p>... Because every program uses slightly different format and it would be
+nightmare to cover all the cases, you say? Then you're exactly right. But then again,
+I though that I don't anything perfect, just something that mostly works.</p>
+<p>So I wrote a <code>zsh</code> plugin I wrote <a href="http://github.com/RobSis/zsh-completion-generator">that does exactly that.</a>.</p>
+<p>Luckily, most programs do play nice. But help texts are still meant to be for
+humans so beware that it still can bork sometimes...</p>
+<p>The plugin parses short and long options and their descriptions from commands's help
+texts and then generates functions automatically. Read the README of the
+project for more info about usage.</p>
+<p>Here follows a test file that demonstrates common patterns in help texts and
+the generated function:</p>
+<hr>
+
+<pre><code>Usage: imag [options] [target] ...
+Imaginary command the sake of demonstration.
+
+Options:
+  -b, -m                      Few words of description.
+  -B --always-make            Short and long variant.
+  -C DIRECTORY, --directory=DIRECTORY
+                              This description is on the next line.
+  -d                          Short option only.
+  --no-print-directory        Long option only.
+  --debug[=FLAGS]             Print various types of debugging information.
+  -f FILE, --file=FILE, --makefile=FILE
+                              More variants of one option are supported.
+  -h --help                   No comma.
+  -j [N], --jobs[=N]          Short options can have arguments too!
+  -k, --no-description
+  -S, --no-keep-going, --stop
+                              Same as --whatever.
+  -W FILE, --what-if FILE, --new-file FILE, --assume-new FILE
+                              Even more variants without equals.
+
+Current caveats: (these cases fail or don't work properly)
+  -t        Two column help text   -T     can be found in some programs.
+  --only-one-space Between argument and description.
+  -D &lt;var&gt;:&lt;type&gt;=&lt;value&gt;     Harder syntax right in the option.
+  --help={target|optimizers|warnings|params|[^]{joined|separate|undocumented}}[,...]
+                              This baby from gcc's help text.
+
+This program built for x86_64-pc-linux-gnu
+Report bugs to &lt;bug@gnu.org&gt;
+</code></pre>
+<hr>
+
+<p><code>$ gencomp imag</code></p>
+<hr>
+
+<pre><code>#compdef imag
+
+# zsh completions for 'imag'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+    {-b,-m}'[Few words of description.]'
+    {-B,--always-make}'[Short and long variant.]'
+    {-C,--directory}'[This description is on the next line.]'
+    '-d[Short option only.]'
+    '--no-print-directory[Long option only.]'
+    '--debug[Print various types of debugging information.]'
+    {-f,--file,--makefile}'[More variants of one option are supported.]'
+    {-h,--help}'[No comma.]'
+    {-j,--jobs}'[Short options can have arguments too!]'
+    {-k,--no-description}'[]'
+    {-S,--no-keep-going,--stop}'[Same as --whatever.]'
+    {-W,--what-if,--new-file,--assume-new}'[Even more variants without equals.]'
+    '-t[Two column help text   -T     can be found in some programs.]'
+    '--only-one-space[argument and description.]'
+    '-D[&lt;value&gt;     Harder syntax right in the option.]'
+    '--help[^\]{joined|separate|undocumented}}\[,...\]]'
+    '*:filename:_files'
+)
+
+_arguments -s $arguments
+</code></pre>
+<hr>
 </div>
+
+<small><em>Thanks for stopping by!</em></small>
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
   </article>
