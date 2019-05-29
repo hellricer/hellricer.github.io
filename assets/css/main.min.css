@@ -332,8 +332,9 @@ blockquote {
 tt,
 code,
 kbd,
-samp,
-pre {
+samp {
+  border: 1px solid #d0d0d0;
+  background-color: #dddddd;
   font-family: 'dejavu-sans', monospace;
 }
 p code,
@@ -344,8 +345,8 @@ li code {
   white-space: nowrap;
   margin: 0 2px;
   padding: 0 5px;
-  border: 1px solid #ffffff;
-  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+  background-color: #dddddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -3181,6 +3182,7 @@ body {
   }
 }
 .site-logo pre {
+  font-family: 'dejavu-sans', monospace;
   display: inline-block;
   font-size: 16px;
   font-size: 1.14285714rem;
