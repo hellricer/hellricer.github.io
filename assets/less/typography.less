@@ -91,7 +91,9 @@ blockquote {
 }
 
 // Code
-tt, code, kbd, samp, pre {
+tt, code, kbd, samp {
+    border: 1px solid darken(@gray, 5);
+    background-color: @gray;
     font-family: @code-font;
 }
 p,
@@ -101,8 +103,8 @@ li {
         white-space: nowrap;
         margin: 0 2px;
         padding: 0 5px;
-        border: 1px solid lighten(@black, 90);
-        background-color: lighten(@black, 95);
+        border: 1px solid darken(@gray, 5);
+        background-color: @gray;
         .rounded(3px);
     }
 }

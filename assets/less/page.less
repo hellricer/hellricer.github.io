@@ -17,6 +17,7 @@ body {
 		display: inline-block;
 		vertical-align: top;
 		padding: 4px 20px;
+        margin: -1px;
 		background-color: @base-color;
 		.rounded(0 0 10px 10px);
 		.clearfix();
@@ -46,42 +47,11 @@ body {
 // Responsive nav toggle stuff
 #site-nav {
 	z-index: 9000;
-	display: none;
 	@media @medium {
 		-webkit-animation-duration: 1s;
 		-moz-animation-duration: 1s;
 		-o-animation-duration: 1s;
 		animation-duration: 1s;
-	}
-	&.closed {
-		@media @medium {
-			display: block;
-		}
-	}
-	&.opened {
-		display: block;
-		max-height: 100%;
-		li {
-			float: none;
-			@media @medium {
-				float: left;
-			}
-		}
-	}
-}
-.no-js #site-nav {
-	display: block;
-}	
-#nav-toggle { 
-	z-index: 9999;
-	display: block;
-	vertical-align: top;
-	margin: -1px;
-	padding: 4px 20px;
-	background-color: @black;
-	.rounded(0);
-	@media @medium {
-		display: none;
 	}
 }
 
@@ -134,7 +104,9 @@ body {
 	}
 
     pre {
+        font-family: @code-font;
         display: inline-block;
+        .font-rem(16);
         text-align: left;
         line-height: 1.1;
         letter-spacing: -0.1em;
@@ -157,7 +129,7 @@ body {
 .site-description {
 	margin-top: 0;
 	font-family: @alt-font;
-	.font-rem(16);
+	.font-rem(14);
 	font-weight: 200;
 	font-style: italic;
 	-webkit-animation-duration: 1s;
@@ -169,7 +141,7 @@ body {
     -o-animation-delay: 1s;
     animation-delay: 1s;
 	@media @medium {
-		.font-rem(20);
+		.font-rem(18);
 	}
 }
 

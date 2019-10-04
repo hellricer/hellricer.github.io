@@ -7,16 +7,19 @@ title: About
 
 ... a programmer by trade.
 
-... free-software freak.
+... a free-software enthusiast.
 
-... lover of keyboard-driver, command-line and textual interfaces.
+... lover of keyboard-driven, command-line and textual interfaces.
 
 ... reachable on [Github](https://github.com/{{ site.owner.github }}) and [Email]({{ site.owner.email }}).
 
-# This page...
 
-... aims to be modern, minial & easy on the eyes.
+# This website...
 
 ... is responsive.
 
-... works and looks good in terminal-based browsers like (lynx, w3m & elinks).
+... aims to be modern, minimal & easy on the eyes.
+
+... is tiny.
+
+... looks good in terminal-based browsers like (lynx, w3m & elinks).

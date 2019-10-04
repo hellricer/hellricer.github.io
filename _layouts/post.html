@@ -4,7 +4,7 @@ layout: page
 
 <p class="meta">
   <small>
-    <em>{{ page.date.strftime("%B %d, %Y") }}</em>
+    <em>[{{ page.date.strftime("%B %d, %Y") }}]</em>
   </small>
 </p>
 
@@ -12,4 +12,9 @@ layout: page
   {{ content }}
 </div>
 
-<small><i>Thank you for finding time to read my blog!</i></small>
+<small><em>Thanks for stopping by!</em></small>
+
+{% import 'macros.html' as macros with context %}
+{% if page.reddit %}
+  {{ macros.reddit(page.reddit) }}
+{% endif %}

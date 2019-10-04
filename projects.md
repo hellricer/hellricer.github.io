@@ -3,4 +3,9 @@ layout: page
 title: Projects
 ---
 
-* [cursedtag](http://github.com/hellricer/cursedtag) - a console-based editor of audio-file tags
+* [cursedtag](https://github.com/hellricer/cursedtag) - a terminal-based editor of audio-file tags
+
+* [mpseek](https://github.com/hellricer/mpseek) - smart queries on MPD database
+
+* [soupmonkey](https://github.com/hellricer/soupmonkey) - smart queries on MPD database
+

@@ -1,6 +1,10 @@
-{%- macro figure(link, caption='') -%}
+{%- macro figure(link, caption='', alt='') -%}
 <figure>
-    <a href="{{ site.url }}/{{ link }}"><img src="{{ site.url }}/{{ link }}" alt="{{ caption }}" title="{{ caption }}" /></a>
+    <a href="{{ site.url }}/{{ link }}"><img src="{{ site.url }}/{{ link }}" alt=" Image: {{ alt }}" title="{{ caption }}" /></a>
     <figcaption>{{ caption }}</figcaption>
 </figure>
+{%- endmacro %}
+
+{%- macro reddit(post_id) -%}
+<small> » <em><a href="https://reddit.com/{{ post_id }}">Discussion on reddit.com</a></em></small>
 {%- endmacro %}
