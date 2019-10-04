@@ -7,6 +7,30 @@
         <atom:link href="https://hellricer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>Soupmonkey</title>
+                <description>&lt;p&gt;&lt;a href=&#34;/2019/05/29/elinks-with-beautifulsoup.html&#34;&gt;In my last blog-post&lt;/a&gt; , I discovered an easy way to manipulate DOM before rendering it in Elinks using BeautifulSoup library.&lt;/p&gt;
+&lt;p&gt;I called it DevTools for ELinks, but as one reddit user correctly noted, it&#39;s conceptually more similar to user-scripts.&lt;/p&gt;
+&lt;p&gt;That gave me an idea to completely separate rule-files for individual domains in a similar way that Greasemonkey, Tampermonkey and similar user-script managers do.&lt;/p&gt;
+&lt;p&gt;So, I introduce &lt;a href=&#34;https://github.com/hellricer/soupmonkey&#34;&gt;soupmonkey!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The usage is simplified as well - all you have to do is clone the repository into your &lt;code&gt;~/.elinks/&lt;/code&gt; folder and decorate the &lt;code&gt;pre_format_html_hook&lt;/code&gt; in the hooks file.  So your &lt;code&gt;~/.elinks/hooks.py&lt;/code&gt; might look like this:&lt;/p&gt;
+&lt;hr/&gt;
+
+&lt;pre&gt;&lt;code&gt;import soupmonkey
+
+@soupmonkey.inject
+def pre_format_html_hook(url, html):
+    return html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr/&gt;
+
+&lt;p&gt;And that&#39;s it!&lt;/p&gt;
+&lt;p&gt;As of writ</description>
+                <pubDate>Fri, 04 Oct 2019 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2019/10/04/modify-dom-in-elinks-with-soupmonkey.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2019/10/04/modify-dom-in-elinks-with-soupmonkey.html</guid>
+            </item>
+        
+            <item>
                 <title>ELinks with BeautifulSoup</title>
                 <description>&lt;p&gt;For many terminal dwellers like me, browsing the web is one of the last few scenarios where we have to leave our cozy terminals into the harsh cold GUI world. Complexity of today&#39;s websites simply won&#39;t cut it without graphics, preferably with high screen resolution.&lt;/p&gt;
 &lt;p&gt;That&#39;s not to say that it&#39;s not worth to experiment with terminal-based browsers, though! Most people probably know about &lt;code&gt;w3m&lt;/code&gt; for its ability to display actual images and &lt;code&gt;lynx&lt;/code&gt; as the oldest one. But in this post, I&#39;d like to talk about &lt;a href=&#34;http://elinks.cz/&#34;&gt;ELinks&lt;/a&gt;.&lt;/p&gt;
@@ -49,17 +73,11 @@ whole new, &lt;a href=&#34;https://clementc.github.io/blog/2018/01/25/moving_cli
             </item>
         
             <item>
-                <title>Genes in Middle-Earth</title>
+                <title>Genes in Middle-earth</title>
                 <description>&lt;p&gt;&lt;em&gt;...one script to find them all,
 and into GEDCOM bind them...&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I love Middle-Earth.  Out of all the imaginary places invented for the entertainment, &lt;em&gt;Arda&lt;/em&gt; is arguably
-the most complex one.  The amount of information that accompanies the stories is overwhelming.  Tolkien is known
-to be genius linguist - languages of his world evolve in time, fork into dialects and influence each other.
-But his sense for geography and history is just as incredible.  There are more than 70 kingdoms with several hundreds of
-people documented at least to some extent.  Some can be find in family trees printed in appendices of the books, some
-family relations are only mentioned in stories, but there&#39;s lot of them.  So, how about we map them?&lt;/p&gt;
-&lt;p&gt;I&#39;m obviously not the first one to think of digitalizing Tolkien&#39;s genealogies.  &lt;a href=&#34;http://www.minastirith.com/cgi-bin/ultimatebb.cgi?ubb=get_topic;f=1;t=000070&#34;&gt;There are&lt;/a&gt;
-some ancient forum threads that dealt with digitalizing th</description>
+&lt;p&gt;Ever since I was a child, Middle-earth was a special place for me.  Out of all the imaginary places invented for the entertainment, &lt;em&gt;Arda&lt;/em&gt; is arguably the most complex one.  The amount of information that accompanies the stories is overwhelming.  Tolkien is known to be genius linguist - languages of his world evolve in time, fork into dialects and influence each other.  But his sense for geography and history is just as incredible.  There are more than 70 kingdoms with several hundreds of people documented at least to some extent.  Some can be find in family trees printed in appendices of the books, some family relations are only mentioned in stories, but there&#39;s lot of them.  So, how about we map them?&lt;/p&gt;
+&lt;p&gt;I&#39;m obviously not the first one to think of digitalizing Tolkien&#39;s genealogies.  &lt;a href=&#34;http://www.minastirith.com/cgi-bin/ultimatebb.cgi?ubb=get_topic;f=1;t=000070&#34;&gt;There are&lt;/a&gt; some ancien</description>
                 <pubDate>Thu, 30 Apr 2015 00:00:00 </pubDate>
                 <link>https://hellricer.github.io/2015/04/30/genes-in-middle-earth.html</link>
                 <guid isPermaLink="true">https://hellricer.github.io/2015/04/30/genes-in-middle-earth.html</guid>

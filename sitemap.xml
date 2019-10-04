@@ -10,6 +10,14 @@
     </url>
     
     <url>
+        <loc>https://hellricer.github.io/feed.xml</loc>
+    </url>
+    
+    <url>
+        <loc>https://hellricer.github.io/404.html</loc>
+    </url>
+    
+    <url>
         <loc>https://hellricer.github.io/sitemap.xml</loc>
     </url>
     
@@ -18,18 +26,14 @@
     </url>
     
     <url>
-        <loc>https://hellricer.github.io/404.html</loc>
-    </url>
-    
-    <url>
         <loc>https://hellricer.github.io/index.html</loc>
     </url>
     
-    <url>
-        <loc>https://hellricer.github.io/feed.xml</loc>
-    </url>
-    
 
+    
+    <url>
+        <loc>https://hellricer.github.io/2019/10/04/modify-dom-in-elinks-with-soupmonkey.html</loc>
+    </url>
     
     <url>
         <loc>https://hellricer.github.io/2019/05/29/elinks-with-beautifulsoup.html</loc>

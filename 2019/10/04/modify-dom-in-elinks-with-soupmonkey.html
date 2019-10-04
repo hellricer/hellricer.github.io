@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>About | ~hellricer/</title>
+<title>Soupmonkey | ~hellricer/</title>
 <meta name="description" content="— a terminal dweller">
-
+<meta name="keywords" content="tui, terminal, web">
 
 <link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
 
@@ -75,19 +75,8 @@
     </nav>
 </div><!-- /.navigation-wrapper -->
 
-<header class="masthead">
-    <div class="wrap">
-        <div class="site-logo">
-            <pre>
- _       _ _     _
-| |_ ___| | |_ _(_)___ ___ _ _
-|   | -_| | | '_| /  _/ -_| '_|
-|_|_|___|_|_|_| |_\___\___|_|
-            </pre>
-        </div>
-        <h2 class="site-description" itemprop="description">— a terminal dweller</h2>
-    </div>
-</header><!-- /.masthead -->
+
+    
 
 
 <div id="main" role="main">
@@ -95,19 +84,42 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title">About</h1>
+        <h1 class="entry-title">Soupmonkey</h1>
       </header>
       <div class="entry-content">
-        <h1>I am...</h1>
-<p>... a programmer by trade.</p>
-<p>... a free-software enthusiast.</p>
-<p>... lover of keyboard-driven, command-line and textual interfaces.</p>
-<p>... reachable on <a href="https://github.com/hellricer">Github</a> and <a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x1025243C08203CF0">Email</a>.</p>
-<h1>This website...</h1>
-<p>... is responsive.</p>
-<p>... aims to be modern, minimal &amp; easy on the eyes.</p>
-<p>... is tiny.</p>
-<p>... looks good in terminal-based browsers like (lynx, w3m &amp; elinks).</p>
+        
+<p class="meta">
+  <small>
+    <em>[October 04, 2019]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p><a href="/2019/05/29/elinks-with-beautifulsoup.html">In my last blog-post</a> , I discovered an easy way to manipulate DOM before rendering it in Elinks using BeautifulSoup library.</p>
+<p>I called it DevTools for ELinks, but as one reddit user correctly noted, it's conceptually more similar to user-scripts.</p>
+<p>That gave me an idea to completely separate rule-files for individual domains in a similar way that Greasemonkey, Tampermonkey and similar user-script managers do.</p>
+<p>So, I introduce <a href="https://github.com/hellricer/soupmonkey">soupmonkey!</a></p>
+<p>The usage is simplified as well - all you have to do is clone the repository into your <code>~/.elinks/</code> folder and decorate the <code>pre_format_html_hook</code> in the hooks file.  So your <code>~/.elinks/hooks.py</code> might look like this:</p>
+<hr/>
+
+<pre><code>import soupmonkey
+
+@soupmonkey.inject
+def pre_format_html_hook(url, html):
+    return html
+</code></pre>
+<hr/>
+
+<p>And that's it!</p>
+<p>As of writing this article, there are only scripts for Wikipedia, DuckDuckGo, HackerNews and <a href="https://nixers.net/">nixers.net</a>, but I hope that more will follow.</p>
+<p>If you find this interesting and would like to help or just suggest a webpage, feel free to fire-up an issue or PR on github!</p>
+<p><strong><a href="Note">Note</a>:</strong> The latest elinks package in Debian is missing the Python support.  You might have to build it with python support manually, if that's the case for your distribution as well.</p>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+
+
+
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
   </article>
