@@ -7,6 +7,28 @@
         <atom:link href="https://hellricer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>Test-drive your terminal</title>
+                <description>&lt;p&gt;Along with shell, terminal emulator is for many the most important part of operating system.  It&#39;s where you spend most of your time!&lt;/p&gt;
+&lt;p&gt;There are tones of them to choose from.  Some prefer them as leightweight as possible, others like them to handle things like tabs, splits, etc.&lt;/p&gt;
+&lt;p&gt;But how does your terminal perform at actually displaying stuff?  I wrote this shell script to test how various terminals handle colors, extended text decorations and few other things.&lt;/p&gt;
+&lt;div&gt;
+  &lt;script src=&#34;https://gist.github.com/hellricer/e514d9615d02838244d8de74d0ab18b3.js&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here&#39;s how decorations look in &lt;code&gt;gnome-terminal&lt;/code&gt;:&lt;/p&gt;
+&lt;figure&gt;
+    &lt;a href=&#34;https://hellricer.github.io//assets/images/terminal-decorations.jpg&#34;&gt;&lt;img src=&#34;https://hellricer.github.io//assets/images/terminal-decorations.jpg&#34; alt=&#34; Image: &#34; title=&#34;gnome-terminal getting it almost right.&#34; /&gt;&lt;/a&gt;
+    &lt;figcaption&gt;gnome-terminal getting it almost right.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2&gt;Results&lt;/h2&gt;
+</description>
+                <pubDate>Sat, 05 Oct 2019 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2019/10/05/test-drive-your-terminal.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2019/10/05/test-drive-your-terminal.html</guid>
+            </item>
+        
+            <item>
                 <title>Soupmonkey</title>
                 <description>&lt;p&gt;&lt;a href=&#34;/2019/05/29/elinks-with-beautifulsoup.html&#34;&gt;In my last blog-post&lt;/a&gt; , I discovered an easy way to manipulate DOM before rendering it in Elinks using BeautifulSoup library.&lt;/p&gt;
 &lt;p&gt;I called it DevTools for ELinks, but as one reddit user correctly noted, it&#39;s conceptually more similar to user-scripts.&lt;/p&gt;

@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Projects | ~hellricer/</title>
+<title>Test-drive your terminal | ~hellricer/</title>
 <meta name="description" content="— a terminal dweller">
-
+<meta name="keywords" content="terminal, tui">
 
 <link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
 
@@ -75,19 +75,8 @@
     </nav>
 </div><!-- /.navigation-wrapper -->
 
-<header class="masthead">
-    <div class="wrap">
-        <div class="site-logo">
-            <pre>
- _       _ _     _
-| |_ ___| | |_ _(_)___ ___ _ _
-|   | -_| | | '_| /  _/ -_| '_|
-|_|_|___|_|_|_| |_\___\___|_|
-            </pre>
-        </div>
-        <h2 class="site-description" itemprop="description">— a terminal dweller</h2>
-    </div>
-</header><!-- /.masthead -->
+
+    
 
 
 <div id="main" role="main">
@@ -95,20 +84,96 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title">Projects</h1>
+        <h1 class="entry-title">Test-drive your terminal</h1>
       </header>
       <div class="entry-content">
-        <ul>
-<li>
-<p><a href="https://github.com/hellricer/cursedtag">cursedtag</a> - a terminal-based editor of audio-file tags</p>
-</li>
-<li>
-<p><a href="https://github.com/hellricer/mpseek">mpseek</a> - smart queries on MPD database</p>
-</li>
-<li>
-<p><a href="https://github.com/hellricer/soupmonkey">soupmonkey</a> - easy DOM manipulation for ELinks browser</p>
-</li>
+        
+<p class="meta">
+  <small>
+    <em>[October 05, 2019]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>Along with shell, terminal emulator is for many the most important part of operating system.  It's where you spend most of your time!</p>
+<p>There are tones of them to choose from.  Some prefer them as leightweight as possible, others like them to handle things like tabs, splits, etc.</p>
+<p>But how does your terminal perform at actually displaying stuff?  I wrote this shell script to test how various terminals handle colors, extended text decorations and few other things.</p>
+<div>
+  <script src="https://gist.github.com/hellricer/e514d9615d02838244d8de74d0ab18b3.js"></script>
+</div>
+
+<p>Here's how decorations look in <code>gnome-terminal</code>:</p>
+<figure>
+    <a href="https://hellricer.github.io//assets/images/terminal-decorations.jpg"><img src="https://hellricer.github.io//assets/images/terminal-decorations.jpg" alt=" Image: " title="gnome-terminal getting it almost right." /></a>
+    <figcaption>gnome-terminal getting it almost right.</figcaption>
+</figure>
+
+<h2>Results</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">double underline</th>
+<th align="center">curly underline</th>
+<th align="center">overline</th>
+<th align="center">color underline</th>
+<th align="center">bitmap emoji</th>
+<th align="center">right-to-left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alacritty</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+</tr>
+<tr>
+<td>mlterm</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>kitty</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>gnome-terminal</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+</tr>
+</tbody>
+</table>
+<p>It seems that <code>gnome-terminal</code>, <code>kitty</code> and <code>mlterm</code> check all but one feature and there's actually none that can do it all.</p>
+<p><code>mlterm</code> came as a bit of surprise with double underline and overline support.  It also displays RTL text actually on the right side of the terminal.  It's also interesting that it supports sixel graphics out-of-the-box.</p>
+<p>How does your terminal compare?</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://sw.kovidgoyal.net/kitty/protocol-extensions.html">https://sw.kovidgoyal.net/kitty/protocol-extensions.html</a></li>
+<li><a href="https://lwn.net/Articles/749992/">https://lwn.net/Articles/749992/</a></li>
 </ul>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+
+
+
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
   </article>
