@@ -7,5 +7,5 @@ title: Projects
 
 * [mpseek](https://github.com/hellricer/mpseek) - smart queries on MPD database
 
-* [soupmonkey](https://github.com/hellricer/soupmonkey) - smart queries on MPD database
+* [soupmonkey](https://github.com/hellricer/soupmonkey) - easy DOM manipulation for ELinks browser
 
