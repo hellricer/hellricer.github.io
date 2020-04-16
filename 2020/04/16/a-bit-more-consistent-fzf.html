@@ -5,9 +5,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>ELinks with BeautifulSoup | ~hellricer/</title>
+<title>Making fzf experience a bit more consistent | ~hellricer/</title>
 <meta name="description" content="— a terminal dweller">
-<meta name="keywords" content="tui, terminal, web">
+<meta name="keywords" content="terminal, shell">
 
 <link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
 
@@ -84,89 +84,33 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title">ELinks with BeautifulSoup</h1>
+        <h1 class="entry-title">Making fzf experience a bit more consistent</h1>
       </header>
       <div class="entry-content">
         
 <p class="meta">
   <small>
-    <em>[May 29, 2019]</em>
+    <em>[April 16, 2020]</em>
   </small>
 </p>
 
 <div class="post">
-  <p>For many terminal dwellers like me, browsing the web is one of the last few scenarios where we have to leave our cozy terminals into the harsh cold GUI world. Complexity of today's websites simply won't cut it without graphics, preferably with high screen resolution.</p>
-<p>That's not to say that it's not worth to experiment with terminal-based browsers, though! Most people probably know about <code>w3m</code> for its ability to display actual images and <code>lynx</code> as the oldest one. But in this post, I'd like to talk about <a href="http://elinks.cz/">ELinks</a>.</p>
-<p>It's arguably most feature-packed (read “bloated”) and also most user-friendly of the three. It supports tabs, multiple downloads, bookmarks, it has rudimentary support for CSS and even JavaScript. And, after some tweaking, it can actually look pretty good!</p>
-<figure>
-    <a href="https://hellricer.github.io//assets/images/elinks-ddg.png"><img src="https://hellricer.github.io//assets/images/elinks-ddg.png" alt=" Image: " title="DuckDuckGo keeps text-browsers in mind." /></a>
-    <figcaption>DuckDuckGo keeps text-browsers in mind.</figcaption>
-</figure>
-
-<p>But the feature that really makes it for me is the ability to extend it via so-called hooks written in Lua, Ruby, Perl or Python. Hooks are functions that are called automatically by ELinks in appropriate circumstances. Like after following the link, entering URL in the Open dialog or before rendering the HTML. You can also bind keys and create custom menus.</p>
-<p>I'm most familiar with python, so I tried to play with it a little.</p>
-<p><strong>*Note:</strong> ELinks in my Debian was missing the Python support. You might have to compile it from the source, if that's the case for your distribution as well.</p>
-<h1>DevTools for ELinks</h1>
-<p>There's no denying that most pages look terribly broken in ELinks. Sometimes though, removing or changing few elements does wonders!</p>
-<p>Luckilly, there's an amazing python library called <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/genindex.html"><code>BeautifulSoup</code></a> which makes this stuff really easy.</p>
-<p>Still, I'd like to be able to add new rules as effortlessly as possible, so I created little “framework” for that. It consists of two python scripts <code>hooks.py</code> and <code>devtools.py</code>, which you place into your <code>~/.elinks</code> directory.</p>
-<p>Now all the rules can be easily defined in <code>~/.elinks/rules.py</code> like this:</p>
-<hr>
-
-<pre><code># -*- coding: utf-8 -*-
-
-def remove(e, soup):
-    e.decompose()
-
-def add_border(e, soup):
-    e['border'] = 1
-    e['frame'] = 'box'
-
-# hackernews indents with stretched image,
-# so we replace it with table cell with colspan
-def add_padding(e, soup):
-    level = int(e['width']) / 40
-    td = soup.new_tag('td')
-    td['colspan'] = level
-    e.parent.insert(0, td)
-
-modify = {
-    'news.ycombinator.com' : [
-        # pattern is CSS selector
-        ('table.itemlist, table.comment-tree', add_border),
-        ('table.comment-tree &gt; tr td img', add_padding),
-        ('img[src="y18.gif"]', remove),
-    ],
-
-    '…' : [
-        # you can also use lambdas:
-        ('div.something', lambda e, soup: e.decompose()),
-    ]
-}
-
-# regex substitutions
-replace = {
-    '…' : [
-        ('&lt;table border="0"', '&lt;table border="1"'),
-    ]
-}
+  <p>As for increasingly many people, <code>fzf</code> became deeply ingrained into my workflow. But there are few things that I find a bit odd.</p>
+<p>First, I don't really see the advantage of having <code>Ctrl-T</code> mapped to <em>"find files in current directory"</em>. What I often want is to search only in some subdirectory.</p>
+<p>For example:</p>
+<pre><code>cp Music/&lt;Ctrl-T&gt;
 </code></pre>
-<hr>
-
-<p>Here's comparison of before and after:</p>
-<figure>
-    <a href="https://hellricer.github.io//assets/images/elinks-beforeafter.png"><img src="https://hellricer.github.io//assets/images/elinks-beforeafter.png" alt=" Image: " title="Table borders make everything look better." /></a>
-    <figcaption>Table borders make everything look better.</figcaption>
-</figure>
-
-<p>You can find the scripts <a href="https://gist.github.com/hellricer/5a5eabc2fc0a4e58c7b0833abe283fce">on my Gist.</a></p>
+<p>doesn't quite work for me, because the search starts in my home directory. What I have to use is <code>cp Music/**&lt;Tab&gt;</code>.</p>
+<p>Second thing I don't quite understand is why author needed to treat <code>kill</code> command differently than all the other ones - while you need to type <code>**&lt;Tab&gt;</code> for <code>ssh</code> or <code>export</code>, the <code>kill</code> has to be run with <code>kill &lt;Tab&gt;</code> (and <code>kill **&lt;Tab&gt;</code> doesn't work). There's even <a href="https://github.com/junegunn/fzf/issues/385">an issue</a> about the problem, but it seems that it's not going to be merged any time soon, but it contains some pointers on how to fix it.</p>
+<p>Okay, so if we invoke <code>fzf</code> consistently with typing <code>**&lt;Tab&gt;</code> in all cases, why we don't map <code>Ctrl-T</code> to do that instead?</p>
+<p>If you want to try this, check out <a href="https://github.com/hellricer/fzf/commit/ddd6fbfe172d792f333f603afa328eb4ffdf27e0">my fork of fzf</a> which implements these changes (currently for <code>zsh</code> only.)</p>
+<p>Added bonus is not changing default <code>Tab</code> behaviour and not having to worry about special <code>**</code> syntax at all (which btw. collides with <code>zsh</code>'s globbing operator).</p>
+<p>If you see any problem with this, please let me know!</p>
 </div>
 
 <small><em>Thanks for stopping by!</em></small>
 
 
-
-  <small> » <em><a href="https://reddit.com/bucyx6">Discussion on reddit.com</a></em></small>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

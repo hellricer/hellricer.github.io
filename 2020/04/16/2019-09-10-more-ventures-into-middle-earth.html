@@ -1,0 +1,210 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>More ventures into Middle-earth | ~hellricer/</title>
+<meta name="description" content="— a terminal dweller">
+<meta name="keywords" content="tolkien, ea, gis">
+
+<link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://hellricer.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Load highlight.js -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/styles/googlecode.css">
+<script src="https://hellricer.github.io/assets/js/vendor/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hellricer.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hellricer.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hellricer.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hellricer.github.io/images/apple-touch-icon-144x144-precomposed.png">
+</head>
+
+<body id="page">
+
+<div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav">
+        <div class="main-nav">
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/"><span class="nav-icon">✎</span> Posts</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/projects.html"><span class="nav-icon">⚙</span> Projects</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/about.html"><span class="nav-icon">☆</span> About</a>
+                 
+            </span>
+            
+            <span class="nav-item"><a href="https://hellricer.github.io/feed.xml" title="Atom/RSS feed"><span class="nav-icon">☰</span> Feed</a></span>
+        </div>
+    </nav>
+</div><!-- /.navigation-wrapper -->
+
+
+    
+    <header class="masthead"></header><!-- /.masthead -->
+    
+
+
+<div id="main" role="main">
+  <article class="entry">
+    <img src="https://hellricer.github.io/assets/images/megis/head.png" class="entry-feature-image" alt="More ventures into Middle-earth" style="margin-top:0;">
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <h1 class="entry-title">More ventures into Middle-earth</h1>
+      </header>
+      <div class="entry-content">
+        
+<p class="meta">
+  <small>
+    <em>[April 16, 2020]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>TODO: intro</p>
+<h2>Fixing river flows</h2>
+<blockquote>
+<p>"...the world has changed, I can feel it in the water, I can feel it in the earth..."</p>
+</blockquote>
+<p>This is my shot at fixing something that's been bothering me about the rivers layer.</p>
+<p>It's not uncommon in river datasets that rivers are stored consistently with their stream direction. But it seems that here it's pretty much random. Some rivers begin at their confluence with another river, some spring in the valley and flow into mountains, etc.</p>
+<p>Another issue is that some lines are over-segmented for no clear reason.</p>
+<p><img alt="Fig 1." src="cartography/rivers-mitheithel.png" /></p>
+<blockquote>
+<p>The yellow markers show the startpoints. Red lines are detected as wrongly oriented. Notice that the blue/violet line is one river split into two segments with opposite flow directions.</p>
+</blockquote>
+<p>Going by the intuition, it seems that just a handful of rules could fix most of these cases. One such rule could be that if only one end touches another river, the other end is more likely to be a startpoint. Other rule can be that if one end lies on the coastline, we can be sure it's the endpoint.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="Fig 2." src="cartography/rivers-flows.png" /></th>
+<th align="center"><img alt="Fig 3." src="cartography/rivers-segmentation.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Coastline gives us additional hint for deciding correct direction of flow.</td>
+<td align="center">Unnecessary segmentation of Anduin river.</td>
+</tr>
+</tbody>
+</table>
+<h3>Approach</h3>
+<p>As demonstrated by the blue/violet line from first image, merging connected segments is the first step we need to do. The algorithm could be described as:</p>
+<pre><code>for each river r:
+    get all rivers that share the same startpoint or endpoint with r,
+    repeat the process for each such neighbor, until new rivers are being found.
+    if the geometry after merging all found rivers is still a line,
+        merge them and save as new feature to the output layer,
+        recompute LENGTH and BEARING attributes.
+    else
+        add features separately.
+</code></pre>
+<p>After we merge all such segments, we can proceed with reversing of the flow.</p>
+<pre><code>for each river r:
+    if startpoint lies on the coastline,
+        reverse the flow &amp; recompute BEARING
+    else if startpoint touches another river and the endpoint does not,
+        reverse the flow &amp; recompute BEARING
+</code></pre>
+<p>The second condition is broken only by Mouths of Entwash, Mouths of Glanduin and few other deltas.</p>
+<h3>Results</h3>
+<p>Why even bother with all this? Apart from added consistency, the additional information can be used for rendering rivers gaining the width along its way (also known as tapered rivers). Joining the oversegmented rivers also give us true length of rivers, which can be also used for categorizing.</p>
+<p>Here's example of Lothlórien rivers with Great River Anduin on the right.</p>
+<p><img alt="Fig. 3" src="./cartography/lothlorien.png" /></p>
+<h3>Persisting problems</h3>
+<p>While the procedure hopefully doesn't introduce any new problems, there are still some reoccurring ones that remain to be fixed.</p>
+<p>Basically every river whose ends are not connected to other rivers or a coastline are undecidable or wrongly digitized. Following image illustrates the latter case. The red segments should be split into two segments at the point they touch the other river.</p>
+<p><img alt="Fig. 4" src="./cartography/problem1.png" /></p>
+<p>From brief look-around, most of river networks have nice tree structure, but some topologies are quite unrealistic. Most of those will probably have to be fixed manually...</p>
+<p>As for the isolated rivers, we could probably resolve most of them if we had a heightmap, but I wasn't able to derive elevation of arbitrary point using only the Contours layer.</p>
+<p>You can see the complete script <a href="https://gist.github.com/hellricer/0756643f15f2170737cc1bd0756b7aa0">here</a>.</p>
+<h3>Minor changes</h3>
+<ul>
+<li>Manually fixed some eye-catching problems with well-known rivers.</li>
+<li>Added some missing rivers: Big portion of Mitheithel, Bruinen, Forest River, unnamed stream near Hobbiton &amp; north tributary of Nenuial.</li>
+<li>Fixed broken rivers in Khand. Seem to be caused by error in digitalization.</li>
+<li>Unified the units in LENGTH field to miles.</li>
+<li>Removed fields: LAYER, GM_TYPE, ID, Colour.</li>
+<li>Migrated field NAMEN to NAME, remove NAMEN.</li>
+<li>Renamed shapefile from Rivers19 to Rivers.</li>
+<li>Introduced ORIGIN field for distinguishing canon/MERP/etc. features.</li>
+</ul>
+<h3>What's next?</h3>
+<ul>
+<li>Add labels to all MERP rivers.</li>
+<li>Fix/revise river courses to be as consistent with source material as possible (try to limit yourself to joining &amp; splitting only).</li>
+</ul>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+
+
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 | <a href="http://github.com/hellricer">hellricer</a></span>
+
+<div class="social-icons">
+    <a href="https://pgp.mit.edu/pks/lookup?op=vindex&search=0x1025243C08203CF0" title="Email of hellricer" target="_blank"><i class="icon-envelope icon-2x"></i></a>
+    <a href="http://github.com/hellricer" title="hellricer on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+</div><!-- /.social-icons -->
+    <div class="to-top"><a class="scroll" href="#page"><i class="icon-angle-up icon-2x"></i></a></div>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hellricer.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hellricer.github.io/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.9/gist-embed.min.js"></script>
+
+</body>
+</html>

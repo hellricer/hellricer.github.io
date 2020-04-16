@@ -7,6 +7,57 @@
         <atom:link href="https://hellricer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>Making fzf experience a bit more consistent</title>
+                <description>&lt;p&gt;As for increasingly many people, &lt;code&gt;fzf&lt;/code&gt; became deeply ingrained into my workflow. But there are few things that I find a bit odd.&lt;/p&gt;
+&lt;p&gt;First, I don&#39;t really see the advantage of having &lt;code&gt;Ctrl-T&lt;/code&gt; mapped to &lt;em&gt;&#34;find files in current directory&#34;&lt;/em&gt;. What I often want is to search only in some subdirectory.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp Music/&amp;lt;Ctrl-T&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;doesn&#39;t quite work for me, because the search starts in my home directory. What I have to use is &lt;code&gt;cp Music/**&amp;lt;Tab&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Second thing I don&#39;t quite understand is why author needed to treat &lt;code&gt;kill&lt;/code&gt; command differently than all the other ones - while you need to type &lt;code&gt;**&amp;lt;Tab&amp;gt;&lt;/code&gt; for &lt;code&gt;ssh&lt;/code&gt; or &lt;code&gt;export&lt;/code&gt;, the &lt;code&gt;kill&lt;/code&gt; has to be run with &lt;code&gt;kill &amp;lt;Tab&amp;gt;&lt;/code&gt; (and &lt;code&gt;kill **&amp;lt;Tab&amp;gt;&lt;/code&gt; doesn&#39;t work). There&#39;s even &lt;a href=&#34;https://github.com/junegunn/fzf/issues/385&#34;&gt;an issue&lt;/a&gt; about the problem, but</description>
+                <pubDate>Thu, 16 Apr 2020 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2020/04/16/a-bit-more-consistent-fzf.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2020/04/16/a-bit-more-consistent-fzf.html</guid>
+            </item>
+        
+            <item>
+                <title>URxvt extensions</title>
+                <description>&lt;p&gt;URxvt was my &#34;weapon of choice&#34; for many years. For me, it always constituted perfect blend between blazing-fast and feature-full terminal emulator.&lt;/p&gt;
+&lt;p&gt;It might seem basic at first, but the powerful &lt;code&gt;urxvtperl(3)&lt;/code&gt; interpreter allows users to extend it with pretty much any feature of other terminal emulators like &lt;code&gt;gnome-terminal&lt;/code&gt; or &lt;code&gt;iTerm2&lt;/code&gt; and more.&lt;/p&gt;
+&lt;p&gt;This post contains a curated set of some of these extensions with small description of what they do.&lt;/p&gt;
+&lt;h2&gt;Changing colors &amp;amp; font-size on the fly.&lt;/h2&gt;
+&lt;p&gt;This is very useful when you&#39;re screen-sharing your hidpi desktop and people complain they can&#39;t read anything, or when logs get too long and you want to see them without line-breaks, etc.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://github.com/majutsushi/urxvt-font-size (included in official packages)&lt;/li&gt;
+&lt;li&gt;https://github.com/felixr/urxvt-theme-switch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;div style=&#39;position:relative; padding-bottom:calc(75.00% + 44px)&#39;&gt;&lt;iframe src=&#39;https://gfy</description>
+                <pubDate>Thu, 16 Apr 2020 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2020/04/16/2020-03-14-urxvt-extensions.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2020/04/16/2020-03-14-urxvt-extensions.html</guid>
+            </item>
+        
+            <item>
+                <title>More ventures into Middle-earth</title>
+                <description>&lt;p&gt;TODO: intro&lt;/p&gt;
+&lt;h2&gt;Fixing river flows&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&#34;...the world has changed, I can feel it in the water, I can feel it in the earth...&#34;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is my shot at fixing something that&#39;s been bothering me about the rivers layer.&lt;/p&gt;
+&lt;p&gt;It&#39;s not uncommon in river datasets that rivers are stored consistently with their stream direction. But it seems that here it&#39;s pretty much random. Some rivers begin at their confluence with another river, some spring in the valley and flow into mountains, etc.&lt;/p&gt;
+&lt;p&gt;Another issue is that some lines are over-segmented for no clear reason.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Fig 1.&#34; src=&#34;cartography/rivers-mitheithel.png&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The yellow markers show the startpoints. Red lines are detected as wrongly oriented. Notice that the blue/violet line is one river split into two segments with opposite flow directions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Going by the intuition, it seems that just a handful of rules could fix most of these cases. One suc</description>
+                <pubDate>Thu, 16 Apr 2020 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2020/04/16/2019-09-10-more-ventures-into-middle-earth.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2020/04/16/2019-09-10-more-ventures-into-middle-earth.html</guid>
+            </item>
+        
+            <item>
                 <title>Test-drive your terminal</title>
                 <description>&lt;p&gt;Along with shell, terminal emulator is for many the most important part of operating system.  It&#39;s where you spend most of your time!&lt;/p&gt;
 &lt;p&gt;There are tones of them to choose from.  Some prefer them as leightweight as possible, others like them to handle things like tabs, splits, etc.&lt;/p&gt;
@@ -125,27 +176,6 @@ for one (type of) terminal only.&lt;/p&gt;
                 <pubDate>Wed, 08 Oct 2014 00:00:00 </pubDate>
                 <link>https://hellricer.github.io/2014/10/08/color-me-impressed.html</link>
                 <guid isPermaLink="true">https://hellricer.github.io/2014/10/08/color-me-impressed.html</guid>
-            </item>
-        
-            <item>
-                <title>Generating zsh completion functions</title>
-                <description>&lt;p&gt;When I switched from &lt;code&gt;bash&lt;/code&gt; to &lt;code&gt;zsh&lt;/code&gt;, I was surprised to find how many
-standard programs lacked completion functions. Only few of the coreutils are
-supported in &lt;code&gt;zsh&lt;/code&gt; after the install.&lt;/p&gt;
-&lt;p&gt;Although there are user-contributed repositories like &lt;a href=&#34;http://github.com/zsh-users/zsh-completions&#34;&gt;zsh-users/zsh-
-completions&lt;/a&gt; I still couldn&#39;t
-find completion functions for tools like &lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;nl&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; and others.&lt;/p&gt;
-&lt;p&gt;So I &lt;a href=&#34;http://github.com/zsh-users/zsh-completions/pull/250&#34;&gt;wrote some&lt;/a&gt; and
-I&#39;ve realized that I basically just copied the info from help text to the
-completion function. Boring! Something that even a machine could do. Well,
-almost...&lt;/p&gt;
-&lt;p&gt;Almost every program with command line arguments implements the &lt;code&gt;--help&lt;/code&gt;
-option, which prints out all the options with their description. So why not
-use that for generating the functions?&lt;/p&gt;
-&lt;p&gt;... Because every program uses slightly diffe</description>
-                <pubDate>Tue, 05 Aug 2014 00:00:00 </pubDate>
-                <link>https://hellricer.github.io/2014/08/05/generating-completing-functions.html</link>
-                <guid isPermaLink="true">https://hellricer.github.io/2014/08/05/generating-completing-functions.html</guid>
             </item>
         
     </channel>

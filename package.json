@@ -1,0 +1,22 @@
+{
+  "name": "hellricer.github.io.src",
+  "version": "1.0.0",
+  "description": "Personal Obraz (Jekyll) site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellricer/hellricer.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellricer/hellricer.github.io/issues"
+  },
+  "homepage": "https://github.com/hellricer/hellricer.github.io#readme",
+  "dependencies": {
+    "less": "^3.11.1"
+  }
+}

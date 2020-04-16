@@ -173,12 +173,12 @@ body {
 }
 ::-moz-selection {
   background-color: #eaeaea;
-  color: #444444;
+  color: #444;
   text-shadow: none;
 }
 ::selection {
   background-color: #eaeaea;
-  color: #444444;
+  color: #444;
   text-shadow: none;
 }
 .wrap {
@@ -224,7 +224,7 @@ a {
 }
 body {
   font-family: 'source-sans-pro', sans-serif;
-  color: #444444;
+  color: #444;
 }
 h1,
 h2,
@@ -236,7 +236,7 @@ h6 {
 }
 a {
   text-decoration: none;
-  color: #222222;
+  color: #222;
 }
 a:hover {
   color: #000000;
@@ -302,7 +302,7 @@ figcaption {
 }
 .notice {
   margin-top: 1.5em;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   text-indent: 0;
   font-size: 16px;
   font-size: 1.14285714rem;
@@ -321,7 +321,7 @@ blockquote {
   margin-bottom: 22px;
   margin-bottom: 1.57142857rem;
   padding-left: 20px;
-  border-left: 8px solid #444444;
+  border-left: 8px solid #444;
 }
 .footnotes {
   font-size: 14px;
@@ -334,7 +334,7 @@ code,
 kbd,
 samp {
   border: 1px solid #d0d0d0;
-  background-color: #dddddd;
+  background-color: #ddd;
   font-family: 'dejavu-sans', monospace;
 }
 p code,
@@ -346,7 +346,7 @@ li code {
   margin: 0 2px;
   padding: 0 5px;
   border: 1px solid #d0d0d0;
-  background-color: #dddddd;
+  background-color: #ddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -425,7 +425,7 @@ pre {
   font-style: normal;
   text-decoration: inherit;
   -webkit-font-smoothing: antialiased;
-  *margin-right: .3em;
+  *margin-right: 0.3em;
 }
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
@@ -437,7 +437,7 @@ pre {
 /* makes the font 33% larger relative to the icon container */
 .icon-large:before {
   vertical-align: -10%;
-  font-size: 1.3333333333333333em;
+  font-size: 1.33333333em;
 }
 /* makes sure icons active on rollover in links */
 a [class^="icon-"],
@@ -448,16 +448,16 @@ a [class*=" icon-"] {
 [class^="icon-"].icon-fixed-width,
 [class*=" icon-"].icon-fixed-width {
   display: inline-block;
-  width: 1.1428571428571428em;
+  width: 1.14285714em;
   text-align: right;
-  padding-right: 0.2857142857142857em;
+  padding-right: 0.28571429em;
 }
 [class^="icon-"].icon-fixed-width.icon-large,
 [class*=" icon-"].icon-fixed-width.icon-large {
-  width: 1.4285714285714286em;
+  width: 1.42857143em;
 }
 .icons-ul {
-  margin-left: 2.142857142857143em;
+  margin-left: 2.14285714em;
   list-style-type: none;
 }
 .icons-ul > li {
@@ -466,7 +466,7 @@ a [class*=" icon-"] {
 .icons-ul .icon-li {
   position: absolute;
   left: -2.14285714em;
-  width: 2.142857142857143em;
+  width: 2.14285714em;
   text-align: center;
   line-height: inherit;
 }
@@ -485,7 +485,7 @@ a [class*=" icon-"] {
 }
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -534,11 +534,11 @@ a [class*=" icon-"] {
 }
 [class^="icon-"].pull-left,
 [class*=" icon-"].pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 [class^="icon-"].pull-right,
 [class*=" icon-"].pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 /* BOOTSTRAP SPECIFIC CLASSES
  * -------------------------- */
@@ -576,7 +576,7 @@ a [class*=" icon-"] {
 .nav [class^="icon-"].icon-large,
 .btn [class*=" icon-"].icon-large,
 .nav [class*=" icon-"].icon-large {
-  line-height: .9em;
+  line-height: 0.9em;
 }
 .btn [class^="icon-"].icon-spin,
 .nav [class^="icon-"].icon-spin,
@@ -592,23 +592,23 @@ a [class*=" icon-"] {
 .nav-pills [class^="icon-"].icon-large,
 .nav-tabs [class*=" icon-"].icon-large,
 .nav-pills [class*=" icon-"].icon-large {
-  line-height: .9em;
+  line-height: 0.9em;
 }
 .btn [class^="icon-"].pull-left.icon-2x,
 .btn [class*=" icon-"].pull-left.icon-2x,
 .btn [class^="icon-"].pull-right.icon-2x,
 .btn [class*=" icon-"].pull-right.icon-2x {
-  margin-top: .18em;
+  margin-top: 0.18em;
 }
 .btn [class^="icon-"].icon-spin.icon-large,
 .btn [class*=" icon-"].icon-spin.icon-large {
-  line-height: .8em;
+  line-height: 0.8em;
 }
 .btn.btn-small [class^="icon-"].pull-left.icon-2x,
 .btn.btn-small [class*=" icon-"].pull-left.icon-2x,
 .btn.btn-small [class^="icon-"].pull-right.icon-2x,
 .btn.btn-small [class*=" icon-"].pull-right.icon-2x {
-  margin-top: .25em;
+  margin-top: 0.25em;
 }
 .btn.btn-large [class^="icon-"],
 .btn.btn-large [class*=" icon-"] {
@@ -618,15 +618,15 @@ a [class*=" icon-"] {
 .btn.btn-large [class*=" icon-"].pull-left.icon-2x,
 .btn.btn-large [class^="icon-"].pull-right.icon-2x,
 .btn.btn-large [class*=" icon-"].pull-right.icon-2x {
-  margin-top: .05em;
+  margin-top: 0.05em;
 }
 .btn.btn-large [class^="icon-"].pull-left.icon-2x,
 .btn.btn-large [class*=" icon-"].pull-left.icon-2x {
-  margin-right: .2em;
+  margin-right: 0.2em;
 }
 .btn.btn-large [class^="icon-"].pull-right.icon-2x,
 .btn.btn-large [class*=" icon-"].pull-right.icon-2x {
-  margin-left: .2em;
+  margin-left: 0.2em;
 }
 /* EXTRAS
  * -------------------------- */
@@ -1926,9 +1926,9 @@ svg:not(:root) {
   padding: 8px 20px;
   font-size: 14px;
   font-size: 1rem;
-  background-color: #444444;
+  background-color: #444;
   color: #f2f2f2;
-  border: 2px solid #444444 !important;
+  border: 2px solid #444 !important;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -1938,7 +1938,7 @@ svg:not(:root) {
 }
 .btn:hover {
   background-color: #f2f2f2;
-  color: #444444;
+  color: #444;
 }
 .well {
   padding: 20px;
@@ -2473,7 +2473,7 @@ button::-moz-focus-inner {
   padding: 0;
   width: 90px;
   height: 110px;
-  background-color: #444444;
+  background-color: #444;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -ms-transition: opacity 0.2s ease-in-out;
@@ -2807,7 +2807,7 @@ form legend {
   margin-bottom: 10px;
   *margin-left: -7px;
   padding: 0;
-  color: #444444;
+  color: #444;
   border: 0;
   border-bottom: 1px solid #ffffff;
   white-space: normal;
@@ -2845,7 +2845,7 @@ label {
   display: block;
   margin-bottom: 1.25px;
   font-weight: bold;
-  color: #444444;
+  color: #444;
   cursor: pointer;
 }
 label input,
@@ -2862,7 +2862,7 @@ select {
   margin-bottom: 1.25px;
   background-color: #f2f2f2;
   border: 1px solid #ffffff;
-  color: #444444;
+  color: #444;
 }
 input:hover,
 textarea:hover,
@@ -2980,7 +2980,7 @@ textarea[readonly] {
 }
 input:focus,
 textarea:focus {
-  border-color: #222222;
+  border-color: #222;
   outline: 0;
   outline: thin dotted \9;
 }
@@ -3033,7 +3033,7 @@ body {
   padding: 0;
   width: 100%;
   background-color: #f2f2f2;
-  border-top: 5px solid #444444;
+  border-top: 5px solid #444;
 }
 @media only screen and (min-width: 48em) {
   body {
@@ -3059,7 +3059,7 @@ body {
   vertical-align: top;
   padding: 4px 20px;
   margin: -1px;
-  background-color: #444444;
+  background-color: #444;
   -webkit-border-radius: 0 0 10px 10px;
   -moz-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
@@ -3154,10 +3154,10 @@ body {
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-delay: .05s;
-  -moz-animation-delay: .05s;
-  -o-animation-delay: .05s;
-  animation-delay: .05s;
+  -webkit-animation-delay: 0.05s;
+  -moz-animation-delay: 0.05s;
+  -o-animation-delay: 0.05s;
+  animation-delay: 0.05s;
   border: 4px solid #f2f2f2;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -3198,13 +3198,13 @@ body {
   -moz-animation-duration: 1s;
   -o-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-delay: .75s;
-  -moz-animation-delay: .75s;
-  -o-animation-delay: .75s;
-  animation-delay: .75s;
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  animation-delay: 0.75s;
 }
 .site-title a {
-  color: #444444;
+  color: #444;
 }
 .site-description {
   margin-top: 0;
@@ -3294,7 +3294,7 @@ body {
   font-weight: 600;
 }
 .entry-tags a {
-  color: #444444;
+  color: #444;
 }
 span + .entry-title {
   margin-top: 0;
@@ -3309,7 +3309,7 @@ span + .entry-title {
   letter-spacing: -3px;
 }
 .entry-title a {
-  color: #444444;
+  color: #444;
   text-decoration: underline;
 }
 @media only screen and (min-width: 48em) {
@@ -3366,7 +3366,7 @@ span + .entry-title {
   font-size: 1rem;
 }
 .entry-meta a {
-  color: #444444;
+  color: #444;
 }
 @media only screen and (min-width: 62.5em) {
   .entry-meta {
@@ -3553,7 +3553,7 @@ span + .entry-title {
   padding: 4px 8px;
 }
 .social-icons a:hover {
-  color: #444444;
+  color: #444;
 }
 .upgrade {
   padding: 10px;
