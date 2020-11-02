@@ -9,13 +9,13 @@
             <item>
                 <title>Open source games for MS-DOS</title>
                 <description>&lt;h2&gt;Intro&lt;/h2&gt;
-&lt;p&gt;Most you of probably remember GORILLA.BAS or DONKEY.BAS co-written by Bill Gates himself and many are probably aware that some FPS shooters like Doom and Quake were open-sourced, but otherwise source code wasn&#39;t something saw very often in the DOS gaming world.&lt;/p&gt;
+&lt;p&gt;Most you of probably remember GORILLA.BAS or DONKEY.BAS co-written by Bill Gates himself and many are probably aware that some FPS shooters like Doom and Quake were open-sourced, but otherwise source code wasn&#39;t something you saw very often in the DOS gaming world.&lt;/p&gt;
 &lt;p&gt;But turns out that some developers did decide to release the games&#39; sources over the course of years.  Most of them have been already rewritten to SDL, making them portable to pretty much any modern platform, but for me the real question is — how hard is it to compile the actual DOS binaries?&lt;/p&gt;
 &lt;p&gt;Why would anyone want to do that, you ask?  Because, well..  uhm.  Anyway, let&#39;s get into it!&lt;/p&gt;
 &lt;h2&gt;Mario &amp;amp; Luigi&lt;/h2&gt;
 &lt;p&gt;&lt;iframe width=&#34;901&#34; height=&#34;507&#34; src=&#34;https://www.youtube.com/embed/uu9SO6WOnYY&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;small&gt;&lt;em&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;Let&#39;s start with this Mario clon</description>
+&lt;p&gt;Let&#39;s start with this Mario </description>
                 <pubDate>Sun, 01 Nov 2020 00:00:00 </pubDate>
                 <link>https://hellricer.github.io/2020/11/01/opensource-msdos-games.html</link>
                 <guid isPermaLink="true">https://hellricer.github.io/2020/11/01/opensource-msdos-games.html</guid>
