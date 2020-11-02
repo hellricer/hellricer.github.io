@@ -1,4 +1,5 @@
 # Blog Posts
+ * 2020-10-28 » [Open source games for MS-DOS](_posts/2020-10-28-opensource-msdos-games.md)
  * 2020-04-16 » [Making fzf experience a bit more consistent](_posts/2020-04-16-a-bit-more-consistent-fzf.md)
  * 2019-10-05 » [Test-drive your terminal](_posts/2019-10-05-test-drive-your-terminal.md)
  * 2019-10-04 » [Soupmonkey](_posts/2019-10-04-modify-dom-in-elinks-with-soupmonkey.md)
@@ -11,4 +12,3 @@
 
 ## Drafts
  * 2020-03-14 » [URxvt extensions](_drafts/2020-03-14-urxvt-extensions.md)
- * 2019-09-10 » [More ventures into Middle-earth](_drafts/2019-09-10-more-ventures-into-middle-earth.md)

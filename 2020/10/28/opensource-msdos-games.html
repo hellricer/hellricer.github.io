@@ -1,0 +1,290 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Open source games for MS-DOS | ~hellricer/</title>
+<meta name="description" content="— a terminal dweller">
+<meta name="keywords" content="games, opensource">
+
+<link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://hellricer.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Load highlight.js -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/styles/googlecode.css">
+<script src="https://hellricer.github.io/assets/js/vendor/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hellricer.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hellricer.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hellricer.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hellricer.github.io/images/apple-touch-icon-144x144-precomposed.png">
+</head>
+
+<body id="page">
+
+<div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav">
+        <div class="main-nav">
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/"><span class="nav-icon">✎</span> Posts</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/projects.html"><span class="nav-icon">⚙</span> Projects</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/about.html"><span class="nav-icon">☆</span> About</a>
+                 
+            </span>
+            
+            <span class="nav-item"><a href="https://hellricer.github.io/feed.xml" title="Atom/RSS feed"><span class="nav-icon">☰</span> Feed</a></span>
+        </div>
+    </nav>
+</div><!-- /.navigation-wrapper -->
+
+
+    
+
+
+<div id="main" role="main">
+  <article class="entry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <h1 class="entry-title">Open source games for MS-DOS</h1>
+      </header>
+      <div class="entry-content">
+        
+<p class="meta">
+  <small>
+    <em>[October 28, 2020]</em>
+  </small>
+</p>
+
+<div class="post">
+  <h2>Intro</h2>
+<p>Most you of probably remembers GORILLA.BAS or DONKEY.BAS co-written by Bill Gates himself and many are probably aware that some FPS shooters like Doom and Quake were open-sourced, but otherwise source code wasn't something you'd see very often in the DOS gaming world.</p>
+<p>But turns out that some developers did decide to release the games' sources over the course of years.  Most of them have been already rewritten to SDL, making them portable to pretty much any modern platform, but for me the real question is — how hard is it to compile the actual DOS binaries?</p>
+<p>Why would anyone want to do that, you ask?  Because, well..  uhm.  Anyway, let's get into it!</p>
+<h2>Mario &amp; Luigi</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/uu9SO6WOnYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>Let's start with this Mario clone written by dutch developer Mike Wiering in 1994.  It has solid controls, smooth scrolling with parallax background and six levels.  According to the author, Mario assets were just as a placeholder for engine which was supposed to be used later for other games.  Some of you might remember Sint Nicolaas, which was even featured in LGR, or Charlie the Duck games from the same author.</p>
+<p>Although unofficial, this was still the only Mario game available on DOS, so it spread like fire through various shareware compilations and the early internet.  <a href="https://www.youtube.com/watch?v=D8RhCIvsjWc">Even Tiger Woods knows what's up!</a></p>
+<p>Author shared the source on his website in 2008.  It's written in Pascal and compilation is very straight-forward using Turbo Pascal 5.5 or higher.  Just run <code>TPC /M /L MARIO</code> and you're done!  Check out the code for some super secret cheat codes!</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=p_WfEnHnMKs">LGR - Sint Nicolaas - DOS PC Game Review</a></li>
+<li><a href="https://www.youtube.com/watch?v=gKL3KPU1czM">Wiering Software - DOS Nostalgia</a></li>
+<li><a href="https://wieringsoftware.nl/mario/">Mario &amp; Luigi on Wiering Software website</a></li>
+</ul>
+<h2>Mr. Boom</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/aGf54PbueSY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>Another clone from Super Nintendo.  As a die-hard fan of SNES Bomberman series, I must say it feels just like the real thing — the experience of Super Bomberman series is replicated perfectly plus it supports up to 8 players, network multiplayer over IPX and various other goodies.</p>
+<p>It was released in 1999 by bunch of guys active in demoscene and I was surprised to see it is still pretty popular even today — it continues to live in form of a <a href="https://github.com/Javanaise/mrboom-libretro">libretro core</a> and you can even install it through package managers on most operating systems.  I didn't see the original source linked from the official websites, but <a href="https://github.com/bparker06/mrboom30">somebody luckily put it on github</a>.</p>
+<p>The original code is written in Turbo Assembler and you will also need Watcom linker and PMODE/W extender, both of which can be found online easily.  First, you need to compile <code>SS\REMDY-PM.ASM</code> and <code>P.ASM</code>, link the and then run <code>IFF/MAKE.BAT</code> and <code>GFX/MAKE.BAT</code> to pack the data into the executable:</p>
+<pre><code>CD SS
+TASMX /mu /m9 /q REMDY-PM.ASM
+CD ..
+TASMX /mu /m9 /q P.ASM
+WLINK @X:\PMW133\PMODEW.LNK system pmodew file P.OBJ , SS\REMDY-PM.OBJ
+
+CD IFF
+CALL MAKE.BAT
+CD ..
+CD GFX
+CALL MAKE.BAT
+CD ..
+</code></pre>
+<p>Unfortunately the resulting executable freezes after player selection unless you disable monsters (<code>-M</code> argument), so there's either probably something wrong with the code or I'm just missing something.  Anybody in a mood for some assembler debugging?</p>
+<p>Also the sound is not working, but I couldn't get that working with the original binary either, so that's another thing worth investigating.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/Javanaise/mrboom-libretro">Mr. Boom libretro core</a></li>
+<li><a href="https://github.com/bparker06/mrboom30">Original Mr. Boom source code</a></li>
+</ul>
+<h2>Cyberdogs</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/hbcsTmcyq_w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>This bad-ass top-down shooter reminiscent of Chaos Engine, True Lies or Alien Breed series was released in 1994 by Swedish developer Ronny Wester as a freeware.</p>
+<p>For one-man project, it's a surprisingly complete game — you have various missions to pass, consisting of shooting up cyborgs and collecting items, you can buy weapons and power-ups between missions, etc.  There's also a co-operative mode for two players with very interesting split-screen mechanics:  players share the screen unless they're too far from each other at which point the screen splits up.</p>
+<p>The source code is written in Turbo Pascal 7 and it was released in 2000.  It's available through Internet Archive on <a href="http://web.archive.org/web/20050212133444/http://www.orcsoftware.com/~ronny/Cyberdogs.html">author's now-defunct personal website</a>.  Two then-commercial libraries for handling graphics and sound are not included in the source package, but both can now be found online so the game can be compiled just fine.</p>
+<p>First, let's have a look at the sound library DSMI.  According to its author, it was licensed to several commercial DOS games including Disney's Lion King and Aladdin.  I suspect that Cannon Fodder 2 also uses it, because it stores the music in DSMI's custom AMF format.  To build it, use <code>CASM.BAT</code> to compile all assembler code into object files and then compile pascal unit files with <code>TPC -B DSMI.PAS</code>.</p>
+<p>SPX library was distributed in binary form.  According to its README, the source code could be purchased for "the low price of $220"...  Anyway, we can just point the compiler to unit files for version 7.0 and build the game:</p>
+<pre><code>COPY DSMI\DSMI.INC
+TPC -B -UX:\TP7\UNITS;SPX\TPU70;DSMI -ODSMI DOGS.PAS
+</code></pre>
+<p>Once again, I'm probably missing something because it runs a bit slower than the original executable, but otherwise everything seems to work fine.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://web.archive.org/web/20050212133444/http://www.orcsoftware.com/~ronny/Cyberdogs.html">Cyberdogs website</a> (web archive)</li>
+<li><a href="https://github.com/ochrons/dsmi">DSMI library</a></li>
+<li><a href="http://files.mpoli.fi/software/PROGRAMM/PASCAL/">SPX library</a></li>
+</ul>
+<h2>C-Dogs</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/69ZdmWsbBHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>C-Dogs is a sequel to Cyberdogs released in 1997.  Getting tired of TP's 16-bit protected mode limitations, author completely re-written the game to Watcom C.  It's essentially the same game, but with ton of improvements.  Most notably joystick support, editor, addition of a "dog-fight" which puts two players against each other, many more weapons, and lots of gameplay tweaks.</p>
+<p>Unlike the previous game, there are no missing 3rd party libraries and the source code even includes Makefile!  So if you have your Watcom C set up correctly, the game can be compiled simply by running <code>WMAKE</code>.  Definitely the smoothest compiling experience on this list.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://web.archive.org/web/20050212133345/http://www.orcsoftware.com/~ronny/C-Dogs.html">C-Dogs website</a> (web archive)</li>
+</ul>
+<h2>Jump 'n Bump</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/hrxutquiKoo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em>So cute!</em></small></p>
+<p>This single-screen death-match game featuring cute rabbits killing each other in gruesome manner was developed and self-published by Swedish four-member team Brainchild Design in 1998 and its source code was published a year later.  First linux port, utilizing SDL library for graphics, appeared already in 2001 and it is still being maintained until this day.</p>
+<p>After finding the original source release, I was sad to find out that the library that handles graphics and sound routines is provided only in the form of compiled static library.  But the rest of the code can be compiled using NASM and DJGPP compilers:</p>
+<pre><code>nasm -f coff -o gfx.obj gfx.s
+gcc -I. -c main.c menu.c interrpt.c gfx.c
+gcc -I. -L. -o jump.exe interrpt.o main.o menu.o gfx.o gfx.obj -ldj
+</code></pre>
+<h3>Links</h3>
+<ul>
+<li><a href="https://www.classicdosgames.com/game/Jump_'n_Bump.html">Original source code on RGB Classic Games</a></li>
+<li><a href="https://gitlab.com/LibreGames/jumpnbump">Current fork</a></li>
+</ul>
+<h2>Avalon</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/wyJqHWSfCmA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>Critically acclaimed but highly underrated RPG game Avalon was released in 1998 as a freeware.  It doesn't really excel in graphics department, but it has it charm.  It features sound effects &amp; ton of music, large scrolling world, some puzzle-solving and it just feels like a complete game.</p>
+<p>This source code was kind of a stumper for me.  All 3rd-party libraries are in form of Turbo Pascal unit files, so no sources.  By googling the names, I've found out that some TPUs come from MODEX library by Mike Chapin (MXPRPAS), some come from <em>MiGTracker</em> (where they're also included without sources), some are from rather obscure sound library <em>tucgpl12</em> and you'll need an object file from <em>a different</em> library called MODEX written by Matt Pritchard.  There's still one TPU called <code>CTVOICE.TPU</code> which I wasn't able to track to its origin...</p>
+<p>Anyway, since they're all included with Avalon source, compilation is easy:</p>
+<pre><code>TPC -B -U..\TPU -OMXPRPAS AVALON.PAS
+</code></pre>
+<p>You just need to use Turbo Pascal 7.0, because that's apparently the version which was used to compile the TPUs.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://www.avalonrpg.net/">Official Avalon website</a></li>
+<li><a href="https://lostarchives.org/category/51/file/3760">MODEX Pascal library by Mike Chapin</a></li>
+<li><a href="http://ftp.mpoli.fi/unpacked/software/programm/general/over1400/modex/">Mode X by Matt Pritchard</a></li>
+</ul>
+<h2>PaybackTime 2</h2>
+<p>Paybacktime 2 is a turn-based tactics game for MS-DOS for up to four human players or AI, heavily inspired by X-COM: Enemy Unknown.  Originally developed during 1994-1997 by Finnish developers Niko Nevatie and Kari Luojus - later released into public domain with source code.</p>
+<p>The code written in Turbo Pascal and Turbo Assembler was shared on github by one of the authors in 2014.  There's no makefile and most of batch files are broken/missing, but the batch file <code>TP.BAT</code> sufficiently hints at what needs to be done.  For some reason, I've only been able to compile the assembler files with <code>TASM</code> included in Borland C++ v3.1.  No other versions of <code>TASM</code> worked for me.  (Installing Borland C++ from 15 floppy disks sure was fun!)</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://rflxn.com/paybacktime2">Official PaybackTime 2 website</a></li>
+</ul>
+<h2>WetSpot 2</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/h3pbVftmlqk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>This one is special — it's the only game on this list written in Basic!  More precisely QuickBasic 4.5.  It shows some pretty advanced stuff like working around QBasic's 64K limit by breaking the code into several modules, utilizing of EMS, sound &amp; music, etc.</p>
+<p>It's also surprisingly addictive game!  Gameplay seems to be inspired by arcade game Pengo, but with better graphics.  It kinda reminded me of Goof Troop on SNES.  There's also a two-player co-op!</p>
+<p>If you want to compile it, the easiest way to do it is over the QBasic IDE with default quicklibrary included (<code>QB.EXE /L</code>), then open the <code>WETSPOT2.PAS</code> and create an executable from Run menu.  The <code>SBMIDI.exe</code> sound driver comes from the official Sound Blaster installation disk.  By the way, this game was also ported to pure C and SDL, so if you want to play it properly, that is probably the better option.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="http://web.archive.org/web/20000116062559fw_/http://www.geocities.com:80/SiliconValley/Lakes/7303/wetspot2.htm">Official WetSpot 2 website</a> (web archive)</li>
+<li><a href="https://archive.org/details/wetspot2_201808">Original QBasic source code by Angelo Mottola</a> (web archive)</li>
+<li><a href="https://github.com/dmitrysmagin/wetspot2">SDL port</a></li>
+</ul>
+<h2>Keen Dreams</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/pUTCU9m4gzY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em>Keen's lucid dreaming episode</em></small></p>
+<p>This game is often called "the lost Keen episode" and it's probably not as good as <em>Goodbye, Galaxy!</em>, but it's still Keen!</p>
+<p>The story of how the source code came to light is rather interesting.  Written by iD software, the game was owned by Softdisk until Flat Rock Software supposedly acquired the whole Softdisk catalog.  In 2014, there was a crowdfunding campaign to buy the rights and code from Flat Rock and make it public, which was successful.  The source code is now <a href="https://github.com/keendreams/keen">available on github</a> under GPL license.</p>
+<p>The code includes the project file for Turbo C++, so we can build the executable through the IDE with no problems.  There are multiple versions of the game floating around and you'll need the exact one that the code expects (1.93).  But despite trying with the correct version, the game crashes on scary looking error <code>CAL_CacheSprite: Bad shifts number!</code>.  There seem to be some info on the <a href="http://www.shikadi.net/keenwiki/Patch:Sprite_shifts">Keen Wiki</a> on that topic, but I don't really feel like delving into that rabbit hole...</p>
+<p>Much more interesting is a project called <a href="https://github.com/sulix/omnispeak">omnispeak</a>, which is a modern open-source re-implementation of <em>Goodbye, Galaxy!</em> engine.  And the best part?  It compiles to DOS!</p>
+<p>But not <em>on</em> DOS.  The project is using modern compilers MinGW and djgpp to cross-compile the code into a DOS executable.  No idea about MinGW, but compilation using the latest version of djgpp went without a problem. Just run <code>make PLATFORM=dos</code> or just <code>make</code> for SDL version.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/keendreams/keen">Keen Dreams source code</a></li>
+<li><a href="https://github.com/sulix/omnispeak">OmniSpeak</a></li>
+</ul>
+<h2>Abuse</h2>
+<p><iframe width="901" height="507" src="https://www.youtube.com/embed/l8cYYPpRboo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<small><em></em></small></p>
+<p>Abuse is a futuristic run-and-gun platformer released in 1996 for DOS and GNU/Linux.  You move with keyboard and aim and shoot with mouse and explore the gloomy sci-fi environment swarming with aliens.</p>
+<p>The source code was released two years later and the game was ported to multiple platforms since then.  It is written in C++ and used Watcom compiler..  Although the project includes Watcom makefiles, compiling is not as easy as running <code>wmake</code>.  I'm not really too familiar with Watcom, but it seems that some linker files are missing.  Also, despite all my trying, I couldn't compile with IPX network support.</p>
+<p>One library called Sound Operating System Version 4.0 from company Human Machine (which boasted to be used in over 500 games) is not included in the code.  At first I thought that it disappeared from the internet altogether, but I've eventually found it in the source code to cancelled <a href="https://github.com/mmoczkowski/corridor-8">sequel to Corridor 7 game</a>.</p>
+<p>I won't list all the steps I had to make to build it, but I made a patch that does everything required to compile (and nothing more).  After applying it, all you have to do is to copy the SOS library into root folder and then run <code>wmake /f makefile.wat</code> in <code>imlib</code> and <code>abuse</code> folders.  You can find the patch <a href="">on my Gist</a></p>
+<p>Note, that there are <a href="https://www.dosgames.com/forum/viewtopic.php?p=125982#p125982">multiple versions of the game</a>.  The source code is for version 2.00.  It also works with fRaBs (Free Abuse) data.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/videogamepreservation/abuse">Original code</a></li>
+<li><a href="http://web.archive.org/web/19970225190838/http://www.humanmachine.com/dev.htm">SOS Library</a> (web archive)</li>
+</ul>
+<h2>Honorable mentions</h2>
+<p>Some classic DOS games that were open-sourced didn't make this list.  For example Tyrian and Tyrian 2000 by Jason Emery.  These awesome vertical shooters were open-sourced, but in a peculiar manner — the author entrusted the original Pascal/ASM code only with a small group of developers, who ported it to C and SDL before releasing it as OpenTyrian source port.  Still obviously worth checking out, but sadly the original sources are not public.</p>
+<p>Another hugely popular game Liero had similar fate.  In this case, the original Pascal source code got lost in a hard-drive crash.  Meanwhile, open source community developed 1-to-1 remake called OpenLiero and later got blessings from the author to use the original name, dropping Open from the name.</p>
+<p>Scavenger is another game that I had a lot of fun with, but which was open-sourced only after conversion to SDL.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/opentyrian/opentyrian">OpenTyrian</a></li>
+<li><a href="https://www.liero.be/">Liero</a></li>
+<li><a href="https://www.linuxmotors.com/linux/scavenger/index.html">Scavenger</a></li>
+</ul>
+<p>So there it is.  I was really surprised how smooth it actually went, knowing how hard can it be to build a code that's just few years old sometimes.</p>
+<p>Next time, I'd like to take a look at some 3D games and engines that we could try to compile.  Stay tuned!</p>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+
+
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2020 | <a href="http://github.com/hellricer">hellricer</a></span>
+
+<div class="social-icons">
+    <a href="https://pgp.mit.edu/pks/lookup?op=vindex&search=0x1025243C08203CF0" title="Email of hellricer" target="_blank"><i class="icon-envelope icon-2x"></i></a>
+    <a href="http://github.com/hellricer" title="hellricer on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+</div><!-- /.social-icons -->
+    <div class="to-top"><a class="scroll" href="#page"><i class="icon-angle-up icon-2x"></i></a></div>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hellricer.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hellricer.github.io/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.9/gist-embed.min.js"></script>
+
+</body>
+</html>

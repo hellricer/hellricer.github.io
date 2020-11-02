@@ -234,6 +234,9 @@ h5,
 h6 {
   font-family: 'source-sans-pro', sans-serif;
 }
+h3 {
+  margin-bottom: -1em;
+}
 a {
   text-decoration: none;
   color: #222;
@@ -3273,7 +3276,6 @@ body {
   }
 }
 .entry-header {
-  max-width: 640px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -3355,7 +3357,6 @@ span + .entry-title {
   }
 }
 .entry-meta {
-  max-width: 640px;
   width: 100%;
   margin-right: auto;
   margin-bottom: 30px;
@@ -3413,7 +3414,6 @@ span + .entry-title {
   }
 }
 .entry-content {
-  max-width: 640px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
