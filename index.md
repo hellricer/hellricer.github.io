@@ -1,5 +1,5 @@
 # Blog Posts
- * 2020-10-28 » [Open source games for MS-DOS](_posts/2020-10-28-opensource-msdos-games.md)
+ * 2020-11-01 » [Open source games for MS-DOS](_posts/2020-11-01-opensource-msdos-games.md)
  * 2020-04-16 » [Making fzf experience a bit more consistent](_posts/2020-04-16-a-bit-more-consistent-fzf.md)
  * 2019-10-05 » [Test-drive your terminal](_posts/2019-10-05-test-drive-your-terminal.md)
  * 2019-10-04 » [Soupmonkey](_posts/2019-10-04-modify-dom-in-elinks-with-soupmonkey.md)
