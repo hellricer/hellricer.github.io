@@ -1,0 +1,245 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Decoding the TRAKTOR4 field | ~hellricer/</title>
+<meta name="description" content="— a terminal dweller">
+
+
+<link href="https://hellricer.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="~hellricer/ Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/main.min.css">
+<!-- Webfonts -->
+<script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://hellricer.github.io/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Load highlight.js -->
+<link rel="stylesheet" href="https://hellricer.github.io/assets/css/styles/googlecode.css">
+<script src="https://hellricer.github.io/assets/js/vendor/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hellricer.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hellricer.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hellricer.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hellricer.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hellricer.github.io/images/apple-touch-icon-144x144-precomposed.png">
+</head>
+
+<body id="page">
+
+<div class="navigation-wrapper">
+    <nav role="navigation" id="site-nav">
+        <div class="main-nav">
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/"><span class="nav-icon">✎</span> Posts</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/projects.html"><span class="nav-icon">⚙</span> Projects</a>
+                 
+            </span>
+            
+            <span class="nav-item">
+                
+                    <a href="https://hellricer.github.io/about.html"><span class="nav-icon">☆</span> About</a>
+                 
+            </span>
+            
+            <span class="nav-item"><a href="https://hellricer.github.io/feed.xml" title="Atom/RSS feed"><span class="nav-icon">☰</span> Feed</a></span>
+        </div>
+    </nav>
+</div><!-- /.navigation-wrapper -->
+
+
+    
+
+
+<div id="main" role="main">
+  <article class="entry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <h1 class="entry-title">Decoding the TRAKTOR4 field</h1>
+      </header>
+      <div class="entry-content">
+        
+<p class="meta">
+  <small>
+    <em>[May 05, 2021]</em>
+  </small>
+</p>
+
+<div class="post">
+  <p>The Native Instrument's Traktor line of software is kind of infamous when it comes to its library management.</p>
+<p>It only reads a handful of standard ID3 fields and it encodes its own metadata inside a non-standard private field.  As one could expect, the format is binary and proprietary.</p>
+<p>Luckily, <a href="https://web.archive.org/web/20130525033615/http://dope.cz/code">some clever folks already figured it out back in 2013</a> and it seems that the format haven't changed since then.  They also provided a parser implemented in Perl, but it wasn't archived.</p>
+<p>But since we know the format, we can now write our own parser using some Modern Tools™.</p>
+<h3>Format</h3>
+<p>Data are structured as a <em>n-ary</em> tree of frames.  Each frame consists of the header and the data content.</p>
+<hr>
+
+<pre><code>0x00 0x04 Frame identifier (reversed for some reason)
+0x04 0x04 Frame's length in bytes (=LEN)
+0x08 0x04 Number of child frames
+0x0c LEN  Data content of the frame
+</code></pre>
+<hr>
+
+<p>If the number of child frames is zero, the data content is the actual payload, the type of which can be string, long, float, date plus some special cases, like the Cue points (see below).  Some fields can also contain image data of an arbitrary format and some fields are still unidentified.</p>
+<h4>String</h4>
+<pre><code>0x00 0x04 Length of the string (=LN)
+0x04 LN×2 String data. Each character is followed by \0
+</code></pre>
+<p>Strings are prefixed with a 4-byte number indicating the length.  Each character is represented by two bytes, but it doesn't seem to be standard utf8. (More investigation needed.)</p>
+<h4>Long/float</h4>
+<pre><code>0x00 0x04  The value
+</code></pre>
+<h4>Date</h4>
+<pre><code>0x00 0x01 Day
+0x01 0x01 Month
+0x02 0x02 Year
+</code></pre>
+<h4>Cue points</h4>
+<pre><code>0x00 0x04 Number of cuepoints (=N)
+N×[0x00 0x04 Unknown, seems to default to 1
+   0x04 0x04 Cue point name length (=LN)
+   0x08 LN×2 Cue point name. Each character is followed by \0
+    …   0x04 Display order (long)
+        0x04 Type (enumeration)
+             0 = CUE
+             1 = IN
+             2 = OUT
+             3 = LOAD
+             4 = GRID
+             5 = LOOP
+        0x08 Start (double)
+        0x08 Length (double)
+        0x04 Repeats (long)
+             -1 = No repeat
+              ? = ?
+        0x04 Hot cue (long)]
+</code></pre>
+<h3>Parsing</h3>
+<p>Instead of writing the parser from a scratch, I've used a meta-parser for binary data called <a href="https://kaitai.io/">Kaitai Struct</a>.  With it you can describe formats with a markup language based on YAML and then produce parsers for many different languages automatically.</p>
+<p>It also provides JavaScript output, so we can use it directly in the browser.  Click the button below to process mp3 file with Traktor metadata.</p>
+<p><strong>Note:</strong> The file is not uploaded anywhere, everything is processed in the browser.</p>
+<script src="https://cdn.jsdelivr.net/npm/mp3tag.js@latest/dist/mp3tag.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/kaitai-struct@0.9.0/KaitaiStream.js"></script>
+<script src="/assets/js/Traktor4.js"></script>
+<script src="/assets/js/process.js"></script>
+<p><input type="file" id="input" accept=".mp3" />
+<br />
+<pre id="output">
+Example output:
+TRMD
+    HDR
+        CHKS 1835099
+        FMOD 2021-5-6
+        VRSN 7
+    DATA
+        ANDB 112,153,60,65
+        BITR 249000
+        BPMQ 1
+        COM2 Comment2
+        COMM Comment
+        CTLG Cat. No.
+        CUEP 8
+            0: name: AutoGrid, display_order: 0, type: GRID, start: 1406.629, length: 0.000, repeats: -1, hot cue: 0
+            1: name: n.n., display_order: 0, type: CUE, start: 7765.158, length: 0.000, repeats: -1, hot cue: 1
+            2: name: n.n., display_order: 0, type: CUE, start: 14123.688, length: 0.000, repeats: -1, hot cue: 2
+            3: name: n.n., display_order: 0, type: CUE, start: 20482.217, length: 0.000, repeats: -1, hot cue: 3
+            4: name: n.n., display_order: 0, type: CUE, start: 40087.684, length: 0.000, repeats: -1, hot cue: 4
+            5: name: n.n., display_order: 0, type: CUE, start: 143943.667, length: 0.000, repeats: -1, hot cue: 5
+            6: name: n.n., display_order: 0, type: CUE, start: 182094.844, length: 0.000, repeats: -1, hot cue: 6
+            7: name: n.n., display_order: 0, type: CUE, start: 232963.081, length: 0.000, repeats: -1, hot cue: 7
+        FLGS 12
+        HBPM 113.23372650146484
+        IPDT 2021-5-6
+        LABL Label
+        MKEY 12
+        PCDB 11.787460327148438
+        PKDB 7.761477947235107
+        PROD Producer
+        RANK 255
+        RLDT 1900-1-1
+        SYNC
+            MATY 3
+        TALB Release
+        TCON Genre
+        TIT2 Title
+        TKEY 10m
+        TLEN 245
+        TMIX Mix
+        TPE1 Artist
+        TPE4 Remixer
+        TRCK 1
+        USLT Lyrics  
+  </pre>
+</p>
+<h3>Writing</h3>
+<p>As you might have noticed, there is a check sum.  And sure enough, changing even a single byte causes Traktor Scratch to completely ignore the data.  So far, I haven't been able to find the function which computes it.</p>
+</div>
+
+<small><em>Thanks for stopping by!</em></small>
+
+
+
+  <small> » <em><a href="https://reddit.com/jmk9ym">Discussion on reddit.com</a></em></small>
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2021 | <a href="http://github.com/hellricer">hellricer</a></span>
+
+<div class="social-icons">
+    <a href="https://pgp.mit.edu/pks/lookup?op=vindex&search=0x1025243C08203CF0" title="Email of hellricer" target="_blank"><i class="icon-envelope icon-2x"></i></a>
+    <a href="http://github.com/hellricer" title="hellricer on Github" target="_blank"><i class="icon-github icon-2x"></i></a>
+    
+    
+    
+    
+    
+    
+    
+    
+</div><!-- /.social-icons -->
+    <div class="to-top"><a class="scroll" href="#page"><i class="icon-angle-up icon-2x"></i></a></div>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hellricer.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hellricer.github.io/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.9/gist-embed.min.js"></script>
+
+</body>
+</html>

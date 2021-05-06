@@ -7,14 +7,34 @@
         <atom:link href="https://hellricer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>Decoding the TRAKTOR4 field</title>
+                <description>&lt;p&gt;The Native Instrument&#39;s Traktor line of software is kind of infamous when it comes to its library management.&lt;/p&gt;
+&lt;p&gt;It only reads a handful of standard ID3 fields and it encodes its own metadata inside a non-standard private field.  As one could expect, the format is binary and proprietary.&lt;/p&gt;
+&lt;p&gt;Luckily, &lt;a href=&#34;https://web.archive.org/web/20130525033615/http://dope.cz/code&#34;&gt;some clever folks already figured it out back in 2013&lt;/a&gt; and it seems that the format haven&#39;t changed since then.  They also provided a parser implemented in Perl, but it wasn&#39;t archived.&lt;/p&gt;
+&lt;p&gt;But since we know the format, we can now write our own parser using some Modern Tools™.&lt;/p&gt;
+&lt;h3&gt;Format&lt;/h3&gt;
+&lt;p&gt;Data are structured as a &lt;em&gt;n-ary&lt;/em&gt; tree of frames.  Each frame consists of the header and the data content.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;pre&gt;&lt;code&gt;0x00 0x04 Frame identifier (reversed for some reason)
+0x04 0x04 Frame&#39;s length in bytes (=LEN)
+0x08 0x04 Number of child frames
+0x0c LEN  Data content of the frame
+&lt;/code&gt;&lt;/p</description>
+                <pubDate>Wed, 05 May 2021 00:00:00 </pubDate>
+                <link>https://hellricer.github.io/2021/05/05/decoding-traktor4-field.html</link>
+                <guid isPermaLink="true">https://hellricer.github.io/2021/05/05/decoding-traktor4-field.html</guid>
+            </item>
+        
+            <item>
                 <title>Open source games for MS-DOS</title>
                 <description>&lt;h2&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Most you of probably remember GORILLA.BAS or DONKEY.BAS co-written by Bill Gates himself and many are probably aware that some FPS shooters like Doom and Quake were open-sourced, but otherwise source code wasn&#39;t something you saw very often in the DOS gaming world.&lt;/p&gt;
 &lt;p&gt;But turns out that some developers did decide to release the games&#39; sources over the course of years.  Most of them have been already rewritten to SDL, making them portable to pretty much any modern platform, but for me the real question is — how hard is it to compile the actual DOS binaries?&lt;/p&gt;
 &lt;p&gt;Why would anyone want to do that, you ask?  Because, well..  uhm.  Anyway, let&#39;s get into it!&lt;/p&gt;
 &lt;h2&gt;Mario &amp;amp; Luigi&lt;/h2&gt;
-&lt;p&gt;&lt;iframe width=&#34;901&#34; height=&#34;507&#34; src=&#34;https://www.youtube.com/embed/uu9SO6WOnYY&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;small&gt;&lt;em&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;iframe width=&#34;901&#34; height=&#34;507&#34; src=&#34;https://www.youtube.com/embed/uu9SO6WOnYY&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;small&gt;&lt;em&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;Let&#39;s start with this Mario </description>
                 <pubDate>Sun, 01 Nov 2020 00:00:00 </pubDate>
                 <link>https://hellricer.github.io/2020/11/01/opensource-msdos-games.html</link>
@@ -154,27 +174,6 @@ for one (type of) terminal only.&lt;/p&gt;
                 <pubDate>Wed, 08 Oct 2014 00:00:00 </pubDate>
                 <link>https://hellricer.github.io/2014/10/08/color-me-impressed.html</link>
                 <guid isPermaLink="true">https://hellricer.github.io/2014/10/08/color-me-impressed.html</guid>
-            </item>
-        
-            <item>
-                <title>Generating zsh completion functions</title>
-                <description>&lt;p&gt;When I switched from &lt;code&gt;bash&lt;/code&gt; to &lt;code&gt;zsh&lt;/code&gt;, I was surprised to find how many
-standard programs lacked completion functions. Only few of the coreutils are
-supported in &lt;code&gt;zsh&lt;/code&gt; after the install.&lt;/p&gt;
-&lt;p&gt;Although there are user-contributed repositories like &lt;a href=&#34;http://github.com/zsh-users/zsh-completions&#34;&gt;zsh-users/zsh-
-completions&lt;/a&gt; I still couldn&#39;t
-find completion functions for tools like &lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;nl&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; and others.&lt;/p&gt;
-&lt;p&gt;So I &lt;a href=&#34;http://github.com/zsh-users/zsh-completions/pull/250&#34;&gt;wrote some&lt;/a&gt; and
-I&#39;ve realized that I basically just copied the info from help text to the
-completion function. Boring! Something that even a machine could do. Well,
-almost...&lt;/p&gt;
-&lt;p&gt;Almost every program with command line arguments implements the &lt;code&gt;--help&lt;/code&gt;
-option, which prints out all the options with their description. So why not
-use that for generating the functions?&lt;/p&gt;
-&lt;p&gt;... Because every program uses slightly diffe</description>
-                <pubDate>Tue, 05 Aug 2014 00:00:00 </pubDate>
-                <link>https://hellricer.github.io/2014/08/05/generating-completing-functions.html</link>
-                <guid isPermaLink="true">https://hellricer.github.io/2014/08/05/generating-completing-functions.html</guid>
             </item>
         
     </channel>
