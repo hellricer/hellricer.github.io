@@ -97,7 +97,7 @@
 <div class="post">
   <p>The Native Instrument's Traktor line of software is kind of infamous when it comes to its library management.</p>
 <p>It only reads a handful of standard ID3 fields and it encodes its own metadata inside a non-standard private field.  As one could expect, the format is binary and proprietary.</p>
-<p>Luckily, <a href="https://web.archive.org/web/20130525033615/http://dope.cz/code">some clever folks already figured it out back in 2013</a> and it seems that the format haven't changed since then.  They also provided a parser implemented in Perl, but it wasn't archived.</p>
+<p>Luckily, <a href="https://web.archive.org/web/20130525033615/http://dope.cz/code">some clever folks already figured it out back in 2010</a> and it seems that the format hasn't changed since then.  They also provided a parser implemented in Perl, but it wasn't archived.</p>
 <p>But since we know the format, we can now write our own parser using some Modern Tools™.</p>
 <h3>Format</h3>
 <p>Data are structured as a <em>n-ary</em> tree of frames.  Each frame consists of the header and the data content.</p>
@@ -206,6 +206,7 @@ TRMD
 </div>
 
 <small><em>Thanks for stopping by!</em></small>
+
 
 
       </div><!-- /.entry-content -->
